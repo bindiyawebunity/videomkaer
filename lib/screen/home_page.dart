@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: Image(
                                   fit: BoxFit.fill,
-                                  opacity: AlwaysStoppedAnimation(5),
+                                  opacity: const AlwaysStoppedAnimation(5),
                                   image: AssetImage(
                                     image[index],
                                   )),
@@ -249,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Center(
                                     child: Text(
                                   name[index],
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 )),
                               ),
                             ),
@@ -300,7 +300,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: Image(
                                   fit: BoxFit.fill,
-                                  opacity: AlwaysStoppedAnimation(5),
+                                  opacity: const AlwaysStoppedAnimation(5),
                                   image: AssetImage(
                                     image2[index],
                                   )),
@@ -320,7 +320,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Center(
                                     child: Text(
                                   name2[index],
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 )),
                               ),
                             ),
