@@ -48,13 +48,14 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.grey,
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(5.5),
-                        child: Icon(
-                          Icons.save,
-                          color: Colors.white,
-                          size: 17,
-                        ),
+                      Center(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.save,
+                              color: Colors.white,
+                              size: 12,
+                            )),
                       ),
                     ],
                   ),
@@ -78,14 +79,8 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.grey,
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(5.5),
-                        child: Icon(
-                          Icons.menu,
-                          color: Colors.white,
-                          size: 17,
-                        ),
-                      ),
+                      IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.menu)),
                     ],
                   ),
                 ],
@@ -217,45 +212,48 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 250,
-                              width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Image(
-                                  fit: BoxFit.fill,
-                                  opacity: const AlwaysStoppedAnimation(5),
-                                  image: AssetImage(
-                                    image[index],
-                                  )),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 210.0),
-                              child: Container(
-                                height: 40,
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                height: 250,
                                 width: 200,
                                 decoration: BoxDecoration(
-                                    color: const Color(0xFF040404)
-                                        .withOpacity(0.5),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomRight: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Image(
+                                    fit: BoxFit.fill,
+                                    opacity: const AlwaysStoppedAnimation(5),
+                                    image: AssetImage(
+                                      image[index],
                                     )),
-                                child: Center(
-                                    child: Text(
-                                  name[index],
-                                  style: const TextStyle(color: Colors.white),
-                                )),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 210.0),
+                                child: Container(
+                                  height: 40,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF040404)
+                                          .withOpacity(0.5),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomRight: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15),
+                                      )),
+                                  child: Center(
+                                      child: Text(
+                                    name[index],
+                                    style: const TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
@@ -286,47 +284,50 @@ class _HomePageState extends State<HomePage> {
                 width: 450,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 4,
+                  itemCount: 3,
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              height: 250,
-                              width: 200,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Image(
-                                  fit: BoxFit.fill,
-                                  opacity: const AlwaysStoppedAnimation(5),
-                                  image: AssetImage(
-                                    image2[index],
-                                  )),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 210.0),
-                              child: Container(
-                                height: 40,
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                height: 250,
                                 width: 200,
                                 decoration: BoxDecoration(
-                                    color: const Color(0xFF040404)
-                                        .withOpacity(0.5),
-                                    borderRadius: const BorderRadius.only(
-                                      bottomRight: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                child: Image(
+                                    fit: BoxFit.fill,
+                                    opacity: const AlwaysStoppedAnimation(5),
+                                    image: AssetImage(
+                                      image2[index],
                                     )),
-                                child: Center(
-                                    child: Text(
-                                  name2[index],
-                                  style: const TextStyle(color: Colors.white),
-                                )),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              Padding(
+                                padding: const EdgeInsets.only(top: 210.0),
+                                child: Container(
+                                  height: 40,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                      color: const Color(0xFF040404)
+                                          .withOpacity(0.5),
+                                      borderRadius: const BorderRadius.only(
+                                        bottomRight: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15),
+                                      )),
+                                  child: Center(
+                                      child: Text(
+                                    name2[index],
+                                    style: const TextStyle(color: Colors.white),
+                                  )),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     );
                   },
                 ),
