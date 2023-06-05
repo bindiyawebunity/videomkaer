@@ -30,5 +30,7 @@ class TextStyleFile {
   static TextStyle homePageTitle = TextStyle(
       fontWeight: FontWeight.w500,fontSize: 25,color: ColorFile.textColor
   );
-
+static TextStyle searchPage = TextStyle(
+    fontWeight: FontWeight.w300,fontSize: 25,color: ColorFile.textColor
+);
 }

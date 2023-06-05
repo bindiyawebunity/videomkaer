@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/searchPage.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
 
@@ -94,6 +95,9 @@ class _HomePageState extends State<HomePage> {
                 height: 30,
               ),
               TextFormField(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+                },
                 controller: search,
                 decoration: InputDecoration(
                     hintText: "Template name or category",
@@ -222,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           InkWell(
-                            onTap: ( ){},
+                            onTap: () {},
                             child: Stack(
                               children: [
                                 Container(
@@ -253,7 +257,8 @@ class _HomePageState extends State<HomePage> {
                                     child: Center(
                                         child: Text(
                                       name[index],
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )),
                                   ),
                                 ),
@@ -299,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           InkWell(
-                            onTap: (){},
+                            onTap: () {},
                             child: Stack(
                               children: [
                                 Container(
@@ -330,7 +335,8 @@ class _HomePageState extends State<HomePage> {
                                     child: Center(
                                         child: Text(
                                       name2[index],
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )),
                                   ),
                                 ),
