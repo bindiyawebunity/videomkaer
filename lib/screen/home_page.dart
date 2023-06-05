@@ -41,10 +41,10 @@ class _HomePageState extends State<HomePage> {
                   Stack(
                     children: [
                       Container(
-                        height: 30,
-                        width: 30,
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(40),
                           color: Colors.grey,
                         ),
                       ),
@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                             icon: const Icon(
                               Icons.save,
                               color: Colors.white,
-                              size: 12,
+                              size: 20,
                             )),
                       ),
                     ],
@@ -72,15 +72,20 @@ class _HomePageState extends State<HomePage> {
                   Stack(
                     children: [
                       Container(
-                        height: 30,
-                        width: 30,
+                        height: 40,
+                        width: 40,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(40),
                           color: Colors.grey,
                         ),
                       ),
                       IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.menu)),
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                            size: 20,
+                          )),
                     ],
                   ),
                 ],
