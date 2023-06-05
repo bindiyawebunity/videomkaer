@@ -3,8 +3,6 @@ import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
-import 'package:videomaker/screen/login_page.dart';
-import 'package:videomaker/screen/sign_up.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -74,11 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 text: StringFile.elevatedButton3Text,
                 backgroundColor: ColorFile.elevatedColor,
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SignUpPage(),
-                      ));
+                  Navigator.pushNamed(context, '/signUp');
                 },
               ),
             ],

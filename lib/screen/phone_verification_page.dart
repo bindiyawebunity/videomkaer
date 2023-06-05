@@ -88,11 +88,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SentCodePage(),
-                              ));
+                          Navigator.pushNamed(context, '/sentOtp');
                         }
                       },
                     )),

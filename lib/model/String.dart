@@ -18,5 +18,6 @@ class StringFile {
       "we will send you the 4 digit verification code";
   static String otoVerification = "Otp Verification";
   static String otoVerificationText = "Enter the otp sent to your number";
+  static String searchPage = "Search Template";
 
 }

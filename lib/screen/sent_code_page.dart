@@ -73,7 +73,9 @@ class _SentCodePageState extends State<SentCodePage> {
             width: 250,
             height: 40,
             text: "Verify",
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/homePage');
+            },
             backgroundColor: ColorFile.elevatedColor,
           )
         ],

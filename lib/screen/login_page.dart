@@ -22,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: ColorFile.backGroundColor,
       body: Form(
         key: _formKey,
@@ -31,7 +30,8 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                const Center(child: Image(image: AssetImage("assets/loginPage.png"))),
+                const Center(
+                    child: Image(image: AssetImage("assets/loginPage.png"))),
                 Center(
                     child: Text(
                   StringFile.loginTitle,
@@ -102,22 +102,19 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.only(left: 230.0),
                           child: Text(
                             StringFile.loginPageLast,
-                            style:
-                                const TextStyle(fontSize: 14, color: Colors.white),
+                            style: const TextStyle(
+                                fontSize: 14, color: Colors.white),
                           ),
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const SignUpPage(),
-                                  ));
+                              Navigator.pushNamed(context, '/signUp');
                             },
                             child: const Text(
                               "SignUp",
                               style: TextStyle(
-                                  color: Colors.white, fontWeight: FontWeight.bold),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ))
                       ],
                     ),
@@ -132,11 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ));
+                          Navigator.pushNamed(context, '/homePage');
                         }
                       },
                     )),

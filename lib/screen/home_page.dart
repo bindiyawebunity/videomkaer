@@ -94,6 +94,9 @@ class _HomePageState extends State<HomePage> {
                 height: 30,
               ),
               TextFormField(
+                onTap: () {
+                  Navigator.pushNamed(context, '/searchPage');
+                },
                 controller: search,
                 decoration: InputDecoration(
                     hintText: "Template name or category",
@@ -222,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           InkWell(
-                            onTap: ( ){},
+                            onTap: () {},
                             child: Stack(
                               children: [
                                 Container(
@@ -253,7 +256,8 @@ class _HomePageState extends State<HomePage> {
                                     child: Center(
                                         child: Text(
                                       name[index],
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )),
                                   ),
                                 ),
@@ -299,7 +303,7 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         children: [
                           InkWell(
-                            onTap: (){},
+                            onTap: () {},
                             child: Stack(
                               children: [
                                 Container(
@@ -330,7 +334,8 @@ class _HomePageState extends State<HomePage> {
                                     child: Center(
                                         child: Text(
                                       name2[index],
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     )),
                                   ),
                                 ),
