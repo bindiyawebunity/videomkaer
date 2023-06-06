@@ -20,6 +20,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
       home: const HomePage(),
+
+
+      initialRoute: '/',
+      routes: {
+
+        '/': (context) => const WelcomeScreen(),
+
+        '/login': (context) => LoginPage(),
+        '/signUp': (context) => SignUpPage(),
+        '/homePage': (context) => HomePage(),
+        '/sentOtp': (context) => SentCodePage(),
+        '/phoneVerification': (context) => PhoneVerificationPage(),
+
+      },
     );
   }
 }

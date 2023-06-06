@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:videomaker/screen/login_page.dart';
-import 'package:videomaker/screen/phone_verification_page.dart';
+
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
 import '../model/String.dart';
@@ -166,12 +165,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const PhoneVerificationPage(),
-                              ));
+                          Navigator.pushNamed(context, '/phoneVerification');
                         }
                       },
                     )),
