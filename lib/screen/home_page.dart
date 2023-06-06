@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/searchPage.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
 
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> {
               ),
               TextFormField(
                 onTap: () {
-                  Navigator.pushNamed(context, '/searchPage');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
                 },
                 controller: search,
                 decoration: InputDecoration(

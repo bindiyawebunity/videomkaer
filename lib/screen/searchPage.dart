@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
-import 'package:videomaker/screen/home_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -95,7 +94,7 @@ class _SearchPageState extends State<SearchPage> {
                     ),
                     title: Text(
                       name[index],
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   );
                 },
