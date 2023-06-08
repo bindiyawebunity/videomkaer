@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/screen/searchPage.dart';
 import 'package:videomaker/screen/setting_page.dart';
 import '../model/TextStyle.dart';
@@ -12,7 +13,34 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late String finalUserName;
+  late String finalEmail;
+  late String finalPhoneNumber;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  Future<void> getData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    var userName = prefs.getString('UserName');
+    var email = prefs.getString('Email');
+    var phoneNumber = prefs.getString('PhoneNumber');
+
+    setState(() {
+      finalUserName = userName!;
+      finalEmail = email!;
+      finalPhoneNumber = phoneNumber!;
+    });
+  }
+
   TextEditingController search = TextEditingController();
+  var nameValue = "Username";
+
   List mainImage = ["assets/homePage2.png", "assets/homePage.png"];
   List mainName = [
     "Couple Dance",
@@ -48,34 +76,69 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: ColorFile.backGroundColor,
         child: ListView(
           children: [
-            const DrawerHeader(
-                decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.grey))),
-                child: ListTile(
-                  title: Text(
-                    "username",
-                    style: TextStyle(color: Colors.white, fontSize: 25),
-                  ),
-                  subtitle: Text(
-                    "email address",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )),
             const SizedBox(
               height: 20,
             ),
-            Row(
+            Column(
               children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.person, color: Colors.white)),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Profile",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ListTile(
+                      leading: const Icon(
+                        Icons.person,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        finalUserName,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.email,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        finalEmail,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.phone,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        finalPhoneNumber,
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: 1,
+                  color: Colors.grey,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.person, color: Colors.white)),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Profile",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
             const SizedBox(

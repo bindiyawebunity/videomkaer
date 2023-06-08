@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
@@ -18,8 +19,8 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController username = TextEditingController();
-  TextEditingController phoneNumber = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,29 +108,6 @@ class _SignUpPageState extends State<SignUpPage> {
                       iconData: Icons.lock,
                       hintText: "******",
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
-                      child: Text(
-                        "PhoneNumber",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CommonTextField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        } else if (value.length <= 10) {
-                          return "Phone number is invalid";
-                        }
-                        return null;
-                      },
-                      controller: phoneNumber,
-                      iconData: Icons.phone,
-                      hintText: "+91 96********",
-                    ),
                     Row(
                       children: [
                         const SizedBox(
@@ -148,7 +126,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => LoginPage(),
+                                    builder: (context) => const LoginPage(),
                                   ));
                             },
                             child: const Text(
@@ -168,13 +146,18 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 40,
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => PhoneVerificationPage(),
+                                builder: (context) =>
+                                    const PhoneVerificationPage(),
                               ));
+                          final SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          await prefs.setString('UserName', username.text);
+                          await prefs.setString('Email', email.text);
                         }
                       },
                     )),

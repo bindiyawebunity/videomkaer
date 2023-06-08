@@ -29,7 +29,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
                 fit: BoxFit.cover,
               ),
-              const SizedBox(height: 150),
+              const SizedBox(height: 50),
               Center(
                 child: Text(
                   StringFile.welcomeText,
@@ -46,7 +46,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 50),
               CommonElevatedButton(
                 width: 300,
                 height: 40,

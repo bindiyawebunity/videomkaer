@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
@@ -86,9 +87,17 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       height: 40,
                       text: "Send Code",
                       backgroundColor: ColorFile.elevatedColor,
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => SentCodePage(),));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SentCodePage(),
+                              ));
+                          final SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          await prefs.setString(
+                              'PhoneNumber', phoneNumber.text);
                         }
                       },
                     )),

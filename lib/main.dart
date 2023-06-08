@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:videomaker/screen/language_page.dart';
+import 'package:videomaker/screen/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           radioTheme: RadioThemeData(
               fillColor:
                   MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const LanguagePage(),
+      home: const WelcomeScreen(),
     );
   }
 }
