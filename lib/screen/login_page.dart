@@ -33,6 +33,9 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const Center(
                     child: Image(image: AssetImage("assets/loginPage.png"))),
+                const SizedBox(
+                  height: 10,
+                ),
                 Center(
                     child: Text(
                   StringFile.loginTitle,
@@ -148,7 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     const SizedBox(
-                      height: 40,
+                      height: 30,
                     ),
                     Center(
                         child: CommonElevatedButton(

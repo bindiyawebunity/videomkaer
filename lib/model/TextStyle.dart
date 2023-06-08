@@ -11,7 +11,7 @@ class TextStyleFile {
       fontWeight: FontWeight.normal,
       color: ColorFile.elevatedTextColor);
   static TextStyle loginPageTitle = TextStyle(
-      fontWeight: FontWeight.bold, fontSize: 35, color: ColorFile.textColor);
+      fontWeight: FontWeight.w600, fontSize: 30, color: ColorFile.textColor);
   static TextStyle loginPageText = TextStyle(
       fontWeight: FontWeight.normal, fontSize: 15, color: ColorFile.textColor);
   static TextStyle signUpPageTitle = TextStyle(
