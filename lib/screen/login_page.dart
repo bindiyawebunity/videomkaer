@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/signUp');
+                              Navigator.of(context).pushNamed('signUp');
                             },
                             child: const Text(
                               "SignUp",
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, '/homePage');
+                          Navigator.of(context).pushNamed("login");
                         }
                       },
                     )),

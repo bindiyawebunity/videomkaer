@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
 import '../model/String.dart';
@@ -144,7 +143,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/login');
+                              Navigator.pushNamed(context, '/second');
                             },
                             child: const Text(
                               "Login",

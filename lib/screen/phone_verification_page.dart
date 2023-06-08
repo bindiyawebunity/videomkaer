@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
-import 'package:videomaker/screen/sent_code_page.dart';
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
 
@@ -88,7 +87,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, '/sentOtp');
+                          Navigator.pushNamed(context, 'sentOtp');
                         }
                       },
                     )),

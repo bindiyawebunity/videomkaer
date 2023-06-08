@@ -72,7 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 text: StringFile.elevatedButton3Text,
                 backgroundColor: ColorFile.elevatedColor,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/signUp');
+                  Navigator.of(context).pushNamed('signUp');
                 },
               ),
             ],
