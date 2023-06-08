@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:videomaker/screen/home_page.dart';
+import 'package:videomaker/screen/language_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      home: const HomePage(),
+      theme: ThemeData(
+          primarySwatch: Colors.blue,
+          radioTheme: RadioThemeData(
+              fillColor:
+                  MaterialStateColor.resolveWith((states) => Colors.red))),
+      home: const LanguagePage(),
     );
   }
 }

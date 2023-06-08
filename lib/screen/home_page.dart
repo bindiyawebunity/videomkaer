@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:videomaker/screen/searchPage.dart';
+import 'package:videomaker/screen/setting_page.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
 
@@ -45,6 +46,86 @@ class _HomePageState extends State<HomePage> {
       endDrawer: Drawer(
         shadowColor: Colors.grey,
         backgroundColor: ColorFile.backGroundColor,
+        child: ListView(
+          children: [
+            const DrawerHeader(
+                decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.grey))),
+                child: ListTile(
+                  title: Text(
+                    "username",
+                    style: TextStyle(color: Colors.white, fontSize: 25),
+                  ),
+                  subtitle: Text(
+                    "email address",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.person, color: Colors.white)),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Profile",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SettingPage(),
+                          ));
+                    },
+                    icon: const Icon(Icons.settings, color: Colors.white)),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SettingPage(),
+                        ));
+                  },
+                  child: const Text(
+                    "Setting",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              children: [
+                IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.lock, color: Colors.white)),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Log Out",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
