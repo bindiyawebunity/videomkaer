@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/login_page.dart';
+import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
 import '../model/String.dart';
@@ -143,7 +145,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/second');
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginPage(),
+                                  ));
                             },
                             child: const Text(
                               "Login",
@@ -164,7 +170,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, '/phoneVerification');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PhoneVerificationPage(),
+                              ));
                         }
                       },
                     )),

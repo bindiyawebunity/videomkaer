@@ -4,6 +4,7 @@ import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
+import 'package:videomaker/screen/home_page.dart';
 
 class SentCodePage extends StatefulWidget {
   const SentCodePage({Key? key}) : super(key: key);
@@ -74,7 +75,11 @@ class _SentCodePageState extends State<SentCodePage> {
             height: 40,
             text: "Verify",
             onPressed: () {
-              Navigator.pushNamed(context, 'homePage');
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ));
             },
             backgroundColor: ColorFile.elevatedColor,
           )

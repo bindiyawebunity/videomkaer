@@ -28,75 +28,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: ColorFile.backGroundColor,
+        leading: const Icon(Icons.save),
+        title: Center(
+            child: Text(
+          "Reel Maker",
+          style: TextStyleFile.homePageTitle,
+        )),
+      ),
+      endDrawer: Drawer(
+        shadowColor: Colors.grey,
+        backgroundColor: ColorFile.backGroundColor,
+      ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
         padding: const EdgeInsets.only(left: 15.0, right: 15, top: 35),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Stack(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Center(
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.save,
-                              color: Colors.white,
-                              size: 20,
-                            )),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 120,
-                  ),
-                  Text(
-                    "Reel Maker",
-                    style: TextStyleFile.homePageTitle,
-                  ),
-                  const SizedBox(
-                    width: 120,
-                  ),
-                  Stack(
-                    children: [
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.grey,
-                        ),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                            size: 20,
-                          )),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
               TextFormField(
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => SearchPage(),));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SearchPage(),
+                      ));
                 },
                 controller: search,
                 decoration: InputDecoration(
