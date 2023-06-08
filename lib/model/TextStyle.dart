@@ -31,6 +31,6 @@ class TextStyleFile {
       fontWeight: FontWeight.w500,fontSize: 25,color: ColorFile.textColor
   );
 static TextStyle searchPage = TextStyle(
-    fontWeight: FontWeight.w300,fontSize: 25,color: ColorFile.textColor
+    fontWeight: FontWeight.w400,fontSize: 20,color: ColorFile.textColor
 );
 }
