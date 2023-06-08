@@ -12,6 +12,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController search = TextEditingController();
+  List mainImage = ["assets/homePage2.png", "assets/homePage.png"];
+  List mainName = [
+    "Couple Dance",
+    "Dream Place",
+  ];
   List image = [
     "assets/homePage4.png",
     "assets/homePage3.png",
@@ -67,241 +72,197 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 30,
               ),
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Stack(
-                      children: [
-                        Container(
-                          height: 250,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: const Image(
-                              fit: BoxFit.fill,
-                              opacity: AlwaysStoppedAnimation(5),
-                              image: AssetImage(
-                                "assets/homePage2.png",
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 210.0),
-                          child: Container(
-                            height: 40,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF040404).withOpacity(0.5),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(15),
-                                  bottomLeft: Radius.circular(15),
-                                )),
-                            child: const Center(
-                                child: Text(
-                              "Couple Dance",
-                              style: TextStyle(color: Colors.white),
-                            )),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 35,
-                    ),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 250,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: const Image(
-                              fit: BoxFit.fill,
-                              opacity: AlwaysStoppedAnimation(5),
-                              image: AssetImage(
-                                "assets/homePage.png",
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 210.0),
-                          child: Container(
-                            height: 40,
-                            width: 200,
-                            decoration: BoxDecoration(
-                                color: const Color(0xFF040404).withOpacity(0.5),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(15),
-                                  bottomLeft: Radius.circular(15),
-                                )),
-                            child: const Center(
-                                child: Text(
-                              "Dream Place",
-                              style: TextStyle(color: Colors.white),
-                            )),
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "Relax",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          fontSize: 23,
-                          color: ColorFile.textColor),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 290.0),
-                      child: TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'See all',
-                            style: TextStyle(
-                                color: Color(0xFFE68A96), fontSize: 23),
-                          )),
-                    )
-                  ],
-                ),
-              ),
               SizedBox(
-                height: 280,
-                width: 450,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          InkWell(
-                            onTap: () {},
-                            child: Stack(
-                              children: [
-                                Container(
-                                  height: 250,
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Image(
-                                      fit: BoxFit.fill,
-                                      opacity: const AlwaysStoppedAnimation(5),
-                                      image: AssetImage(
-                                        image[index],
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 210.0),
-                                  child: Container(
-                                    height: 40,
-                                    width: 200,
-                                    decoration: BoxDecoration(
-                                        color: const Color(0xFF040404)
-                                            .withOpacity(0.5),
-                                        borderRadius: const BorderRadius.only(
-                                          bottomRight: Radius.circular(15),
-                                          bottomLeft: Radius.circular(15),
-                                        )),
-                                    child: Center(
-                                        child: Text(
-                                      name[index],
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    )),
-                                  ),
-                                ),
-                              ],
+                height: 200,
+                width: 350,
+                child: GridView.builder(
+                  itemCount: mainName.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Stack(
+                      children: [
+                        Container(
+                          height: 230,
+                          width: 165,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Image(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                mainImage[index],
+                              )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 140.0),
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF040404).withOpacity(0.5),
+                                borderRadius: const BorderRadius.only(
+                                  bottomRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                )),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 25.0, top: 8),
+                              child: Text(
+                                mainName[index],
+                                style: const TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     );
                   },
                 ),
               ),
               Row(
                 children: [
+                  const SizedBox(
+                    width: 10,
+                  ),
                   Text(
-                    "Sports",
+                    "Relax",
                     style: TextStyle(
                         fontWeight: FontWeight.w200,
-                        fontSize: 23,
+                        fontSize: 20,
                         color: ColorFile.textColor),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 290.0),
+                    padding: const EdgeInsets.only(left: 215.0),
                     child: TextButton(
                         onPressed: () {},
                         child: const Text(
                           'See all',
                           style:
-                              TextStyle(color: Color(0xFFE68A96), fontSize: 23),
+                              TextStyle(color: Color(0xFFE68A96), fontSize: 20),
                         )),
                   ),
                 ],
               ),
               SizedBox(
-                height: 280,
-                width: 450,
+                height: 220,
+                width: 350,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          InkWell(
-                            onTap: () {},
-                            child: Stack(
-                              children: [
-                                Container(
-                                  height: 250,
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Image(
-                                      fit: BoxFit.fill,
-                                      opacity: const AlwaysStoppedAnimation(5),
-                                      image: AssetImage(
-                                        image2[index],
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 210.0),
-                                  child: Container(
-                                    height: 40,
-                                    width: 200,
-                                    decoration: BoxDecoration(
-                                        color: const Color(0xFF040404)
-                                            .withOpacity(0.5),
-                                        borderRadius: const BorderRadius.only(
-                                          bottomRight: Radius.circular(15),
-                                          bottomLeft: Radius.circular(15),
-                                        )),
-                                    child: Center(
-                                        child: Text(
-                                      name2[index],
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    )),
-                                  ),
-                                ),
-                              ],
+                  itemCount: name.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Stack(
+                      children: [
+                        Container(
+                          height: 240,
+                          width: 170,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Image(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                image[index],
+                              )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 180.0),
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF040404).withOpacity(0.5),
+                                borderRadius: const BorderRadius.only(
+                                  bottomRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                )),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 60.0, top: 15),
+                              child: Text(
+                                name[index],
+                                style: const TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                children: [
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Sports",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w200,
+                        fontSize: 20,
+                        color: ColorFile.textColor),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 210.0),
+                    child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'See all',
+                          style:
+                              TextStyle(color: Color(0xFFE68A96), fontSize: 20),
+                        )),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 200,
+                width: 350,
+                child: ListView.builder(
+                  itemCount: name2.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Stack(
+                      children: [
+                        Container(
+                          height: 230,
+                          width: 165,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          child: Image(
+                              fit: BoxFit.fill,
+                              image: AssetImage(
+                                image2[index],
+                              )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 140.0),
+                          child: Container(
+                            height: 40,
+                            width: 200,
+                            decoration: BoxDecoration(
+                                color: const Color(0xFF040404).withOpacity(0.5),
+                                borderRadius: const BorderRadius.only(
+                                  bottomRight: Radius.circular(15),
+                                  bottomLeft: Radius.circular(15),
+                                )),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 25.0, top: 8),
+                              child: Text(
+                                name2[index],
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     );
                   },
                 ),
