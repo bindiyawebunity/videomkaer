@@ -5,6 +5,7 @@ import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
+import '../firebase/firebase_auth_service.dart';
 import '../model/String.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
@@ -148,16 +149,13 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
-                        var userName = username.text.trim();
-                        var userPassword = password.text.trim();
-                        var userEmail = email.text.trim();
-
-                        FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(email: userEmail, password: userPassword)
-                            .then((value) {
-                          print("User created");
-                        }).catchError((error) {
-                          print("Error creating user: $error");
+                        AuthService.signUp(email.text, password.text)
+                            .then((user) {
+                          if (user != null) {
+                            print("Sign up successful,");
+                          } else {
+                            print("sign up error");
+                          }
                         });
 
                         if (_formKey.currentState!.validate()) {
