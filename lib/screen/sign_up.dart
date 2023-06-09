@@ -149,14 +149,14 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
-                        AuthService.signUp(email.text, password.text)
-                            .then((user) {
-                          if (user != null) {
-                            print("Sign up successful,");
-                          } else {
-                            print("sign up error");
-                          }
-                        });
+                        // AuthService.signUp(email.text, password.text)
+                        //     .then((user) {
+                        //   if (user != null) {
+                        //     print("Sign up successful,");
+                        //   } else {
+                        //     print("sign up error");
+                        //   }
+                        // });
 
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
