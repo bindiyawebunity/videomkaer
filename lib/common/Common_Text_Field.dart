@@ -30,6 +30,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
           filled: true,
           hintText: widget.hintText,
           prefixIcon: Icon(widget.iconData),
+          prefixIconColor: Colors.black,
           fillColor: Colors.white,
           border: OutlineInputBorder(
               borderSide: BorderSide(color: ColorFile.textFieldColor))),

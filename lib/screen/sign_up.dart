@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,7 +7,6 @@ import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
-import '../firebase/firebase_auth_service.dart';
 import '../model/String.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
@@ -35,12 +35,16 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
+                const SizedBox(
+                  height: 10,
+                ),
                 const Image(image: AssetImage("assets/signUpPage.png")),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
                     Padding(
-                      padding: const EdgeInsets.only(left: 160.0, top: 20),
+                      padding: const EdgeInsets.only(left: 100.0, top: 20),
                       child: Text(
                         StringFile.signUpPageText,
                         style: TextStyleFile.signUpPageText,
@@ -117,7 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           height: 15,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 270.0),
+                          padding: const EdgeInsets.only(left: 175.0),
                           child: Text(
                             StringFile.signUpPageText,
                             style: const TextStyle(
@@ -141,12 +145,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       ],
                     ),
                     const SizedBox(
-                      height: 40,
+                      height: 30,
                     ),
                     Center(
                         child: CommonElevatedButton(
-                      width: 280,
-                      height: 40,
+                      width: 250,
+                      height: 45,
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
@@ -167,7 +171,9 @@ class _SignUpPageState extends State<SignUpPage> {
                             "password": userPassword,
                           });
 
-                          print("data created");
+                          if (kDebugMode) {
+                            print("data created");
+                          }
                         });
 
                         if (_formKey.currentState!.validate()) {

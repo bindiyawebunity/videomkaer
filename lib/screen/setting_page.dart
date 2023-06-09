@@ -44,7 +44,7 @@ class _SettingPageState extends State<SettingPage> {
             ),
             Center(
               child: Container(
-                height: 250,
+                height: 300,
                 width: 350,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),

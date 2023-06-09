@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:videomaker/common/Common_Text_Field.dart';
 import 'package:videomaker/common/common_elevated_button.dart';
@@ -6,6 +8,8 @@ import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/home_page.dart';
 import 'package:videomaker/screen/sign_up.dart';
+
+import '../firebase/firebase_auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,11 +38,11 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 60,
                 ),
-                Center(
+                const Center(
                     child: SizedBox(
                         height: 200,
                         width: 200,
-                        child: const Image(
+                        child: Image(
                           image: AssetImage(
                             "assets/loginPage.png",
                           ),
@@ -104,7 +108,9 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       obscureText: true,
                       controller: password,
+                      style: const TextStyle(color: Colors.black),
                       decoration: InputDecoration(
+                          prefixIconColor: Colors.black,
                           hintText: "*****",
                           prefixIcon: const Icon(Icons.lock),
                           fillColor: ColorFile.textFieldColor,
@@ -145,20 +151,36 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Center(
                         child: CommonElevatedButton(
-                      width: 250,
-                      height: 45,
-                      text: "Login",
-                      backgroundColor: ColorFile.elevatedColor,
-                      onPressed: () async {
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const HomePage(),
-                              ));
-                        }
-                      },
-                    )),
+                            width: 250,
+                            height: 45,
+                            text: "Login",
+                            backgroundColor: ColorFile.elevatedColor,
+                            onPressed: () async {
+                              var loginEmail = email.text.trim();
+                              var loginPassword = password.text.trim();
+                              try {
+                                final User? firebaseUsers = (await FirebaseAuth
+                                        .instance
+                                        .signInWithEmailAndPassword(
+                                            email: loginEmail,
+                                            password: loginPassword))
+                                    .user;
+                                if (firebaseUsers != null) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => HomePage(),
+                                      ));
+                                } else {
+                                  const SnackBar(
+                                      content: Text("check Email & Password"));
+                                }
+                              } on FirebaseAuthException catch (e) {
+                                if (kDebugMode) {
+                                  print("error$e");
+                                }
+                              }
+                            })),
                   ],
                 ),
               ],

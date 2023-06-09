@@ -45,7 +45,7 @@ class _LanguagePageState extends State<LanguagePage> {
                 height: 30,
               ),
               Container(
-                  height: 100,
+                  height: 130,
                   width: 450,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -94,7 +94,7 @@ class _LanguagePageState extends State<LanguagePage> {
                 height: 30,
               ),
               Container(
-                  height: 450,
+                  height: 530,
                   width: 450,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
