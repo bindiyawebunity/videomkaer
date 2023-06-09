@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -34,9 +35,6 @@ class _SignUpPageState extends State<SignUpPage> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 10,
-                ),
                 const Image(image: AssetImage("assets/signUpPage.png")),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,13 +150,24 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
-                        AuthService.signUp(email.text, password.text)
-                            .then((user) {
-                          if (user != null) {
-                            print("Sign up successful,");
-                          } else {
-                            print("sign up error");
-                          }
+                        var userName = username.text.trim();
+                        var userEmail = email.text.trim();
+                        var userPassword = password.text.trim();
+
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                                email: userEmail, password: userPassword)
+                            .then((value) {
+                          FirebaseFirestore.instance
+                              .collection("users")
+                              .doc()
+                              .set({
+                            "username": userName,
+                            "email": userEmail,
+                            "password": userPassword,
+                          });
+
+                          print("data created");
                         });
 
                         if (_formKey.currentState!.validate()) {

@@ -6,7 +6,6 @@ import 'package:videomaker/screen/welcome_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await FirebaseAuth.instance.setPersistence(Persistence.NONE);
   runApp(const MyApp());
 }
 
