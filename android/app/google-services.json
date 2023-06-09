@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "613021341391",
+    "project_id": "reel-maker-15b04",
+    "storage_bucket": "reel-maker-15b04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:613021341391:android:1ee031cd3c2d79a4fa89ba",
+        "android_client_info": {
+          "package_name": "com.videoMaker.videoMaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "613021341391-h1oq95qo8i78bohh5hgectr83uacoom2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.videoMaker.videoMaker",
+            "certificate_hash": "56df356bcc2d0464e25f45108bd1a4303d3e1c62"
+          }
+        },
+        {
+          "client_id": "613021341391-bigmj1k55lj59mmm5puugv8cjes9s82o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGo9ENyfUJuwjmPI2F9-mQlXptYcwOoY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "613021341391-bigmj1k55lj59mmm5puugv8cjes9s82o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
