@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
@@ -147,6 +148,18 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
+                        var userName = username.text.trim();
+                        var userPassword = password.text.trim();
+                        var userEmail = email.text.trim();
+
+                        FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(email: userEmail, password: userPassword)
+                            .then((value) {
+                          print("User created");
+                        }).catchError((error) {
+                          print("Error creating user: $error");
+                        });
+
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
                               context,
