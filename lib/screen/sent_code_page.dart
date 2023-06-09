@@ -18,72 +18,74 @@ class _SentCodePageState extends State<SentCodePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 100,
-          ),
-          const Center(
-            child: SizedBox(
-              height: 400,
-              width: 400,
-              child: Image(
-                  image: AssetImage(
-                "assets/sentOtpPage.png",
-              )),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 100,
             ),
-          ),
-          Text(
-            StringFile.otoVerification,
-            style: TextStyleFile.otpVerificationPageTitle,
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            StringFile.otoVerificationText,
-            style: TextStyleFile.otpVerificationPageText,
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          OtpTextField(
-            numberOfFields: 4,
-            borderColor: Colors.white,
-            textStyle: TextStyle(color: ColorFile.textColor),
+            const Center(
+              child: SizedBox(
+                height: 400,
+                width: 400,
+                child: Image(
+                    image: AssetImage(
+                  "assets/sentOtpPage.png",
+                )),
+              ),
+            ),
+            Text(
+              StringFile.otoVerification,
+              style: TextStyleFile.otpVerificationPageTitle,
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              StringFile.otoVerificationText,
+              style: TextStyleFile.otpVerificationPageText,
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            OtpTextField(
+              numberOfFields: 4,
+              borderColor: Colors.white,
+              textStyle: TextStyle(color: ColorFile.textColor),
 
-            showFieldAsBox: true,
+              showFieldAsBox: true,
 
-            onCodeChanged: (String code) {},
+              onCodeChanged: (String code) {},
 
-            onSubmit: (String verificationCode) {
-              showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: const Text("Verification Code"),
-                      content: Text('Code entered is $verificationCode'),
-                    );
-                  });
-            }, // end onSubmit
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          CommonElevatedButton(
-            width: 250,
-            height: 40,
-            text: "Verify",
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ));
-            },
-            backgroundColor: ColorFile.elevatedColor,
-          )
-        ],
+              onSubmit: (String verificationCode) {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text("Verification Code"),
+                        content: Text('Code entered is $verificationCode'),
+                      );
+                    });
+              }, // end onSubmit
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            CommonElevatedButton(
+              width: 250,
+              height: 40,
+              text: "Verify",
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ));
+              },
+              backgroundColor: ColorFile.elevatedColor,
+            )
+          ],
+        ),
       ),
     );
   }

@@ -13,7 +13,7 @@ class TextStyleFile {
   static TextStyle loginPageTitle = TextStyle(
       fontWeight: FontWeight.w600, fontSize: 30, color: ColorFile.textColor);
   static TextStyle loginPageText = TextStyle(
-      fontWeight: FontWeight.normal, fontSize: 15, color: ColorFile.textColor);
+      fontWeight: FontWeight.normal, fontSize: 17, color: ColorFile.textColor);
   static TextStyle signUpPageTitle = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 35, color: ColorFile.textColor);
   static TextStyle signUpPageText = TextStyle(

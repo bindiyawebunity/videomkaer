@@ -1,9 +1,9 @@
 class StringFile {
   static String welcomeText = "Welcome!";
   static String welcomePageText =
-      "       Lorem Ipsum is simply dummy text of the printing \n"
-      "   typesetting industry Lorem Ipsum has been industry's\n"
-      "                     standard dummy text ever";
+      "Lorem Ipsum is simply dummy text of the printing \n"
+      "typesetting industry Lorem Ipsum has been industry's\n"
+      "standard dummy text ever";
   static String elevatedButton1Text = "Get Started";
   static String elevatedButton2Text = "Privacy Policy";
   static String elevatedButton3Text = "SIGN UP ";

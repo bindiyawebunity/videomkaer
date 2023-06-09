@@ -23,6 +23,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color: Colors.black),
       validator: widget.validator,
       controller: widget.controller,
       decoration: InputDecoration(

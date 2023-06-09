@@ -31,8 +31,19 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                const Center(
-                    child: Image(image: AssetImage("assets/loginPage.png"))),
+                const SizedBox(
+                  height: 60,
+                ),
+                Center(
+                    child: SizedBox(
+                        height: 200,
+                        width: 200,
+                        child: const Image(
+                          image: AssetImage(
+                            "assets/loginPage.png",
+                          ),
+                          fit: BoxFit.cover,
+                        ))),
                 const SizedBox(
                   height: 10,
                 ),
@@ -45,32 +56,11 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 80.0, top: 30),
+                      padding: const EdgeInsets.only(left: 30.0, top: 30),
                       child: Text(
                         StringFile.loginPage,
                         style: TextStyleFile.loginPageText,
                       ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
-                      child: Text(
-                        "UserName",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CommonTextField(
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        }
-                        return null;
-                      },
-                      controller: username,
-                      iconData: Icons.account_circle,
-                      hintText: "XYZ",
                     ),
                     const Padding(
                       padding: EdgeInsets.only(left: 8.0, top: 40),
@@ -127,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 230.0),
+                          padding: const EdgeInsets.only(left: 130.0),
                           child: Text(
                             StringFile.loginPageLast,
                             style: const TextStyle(
@@ -151,12 +141,12 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Center(
                         child: CommonElevatedButton(
                       width: 250,
-                      height: 40,
+                      height: 45,
                       text: "Login",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
