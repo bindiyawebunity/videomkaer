@@ -9,8 +9,6 @@ import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/home_page.dart';
 import 'package:videomaker/screen/sign_up.dart';
 
-import '../firebase/firebase_auth_service.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -22,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-  TextEditingController username = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,11 +49,10 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Center(
-                    child: Text(
+                Text(
                   StringFile.loginTitle,
                   style: TextStyleFile.loginPageTitle,
-                )),
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -156,6 +153,7 @@ class _LoginPageState extends State<LoginPage> {
                             text: "Login",
                             backgroundColor: ColorFile.elevatedColor,
                             onPressed: () async {
+
                               var loginEmail = email.text.trim();
                               var loginPassword = password.text.trim();
                               try {
@@ -169,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => HomePage(),
+                                        builder: (context) => const HomePage(),
                                       ));
                                 } else {
                                   const SnackBar(
@@ -180,6 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                                   print("error$e");
                                 }
                               }
+
                             })),
                   ],
                 ),

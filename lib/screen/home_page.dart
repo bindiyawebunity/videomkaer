@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/searchPage.dart';
 import 'package:videomaker/screen/setting_page.dart';
 import '../model/TextStyle.dart';
@@ -179,7 +181,54 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {},
                     icon: const Icon(Icons.lock, color: Colors.white)),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                            title: const Text(
+                              'Exit App ?',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 27),
+                            ),
+                            content: const SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  Text("Are you sure you want to exit?"),
+                                ],
+                              ),
+                            ),
+                            actions: <Widget>[
+                              Row(
+                                children: [
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Text("cancel")),
+                                  const SizedBox(
+                                    width: 80,
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () {
+                                        FirebaseAuth.instance.signOut();
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LoginPage(),
+                                            ));
+                                      },
+                                      child: const Text("Yes"))
+                                ],
+                              )
+                            ]);
+                      },
+                    );
+                  },
                   child: const Text(
                     "Log Out",
                     style: TextStyle(color: Colors.white),
