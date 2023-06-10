@@ -18,9 +18,9 @@ class PhoneVerificationPage extends StatefulWidget {
 
 class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
   TextEditingController phoneNumber = TextEditingController();
-  final auth = FirebaseAuth.instance;
+
   final _formKey = GlobalKey<FormState>();
-  String verificationIDReceived = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,42 +91,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       height: 40,
                       text: "Send Code",
                       backgroundColor: ColorFile.elevatedColor,
-                      onPressed: () async {
-                        auth.verifyPhoneNumber(
-                            phoneNumber: phoneNumber.text,
-                            verificationCompleted:
-                                (PhoneAuthCredential credential) {
-                              auth
-                                  .signInWithCredential(credential)
-                                  .then((value) {
-                                if (kDebugMode) {
-                                  print("you are logged in successfully");
-                                }
-                              });
-                            },
-                            verificationFailed:
-                                (FirebaseAuthException exception) {
-                              print(exception.message);
-                            },
-                            codeSent:
-                                (String verificationId, int? resendToken) {
-                              verificationIDReceived = verificationId;
-                            },
-                            codeAutoRetrievalTimeout:
-                                (String verificationId) {});
-
-                        if (_formKey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SentCodePage(),
-                              ));
-                          final SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                          await prefs.setString(
-                              'PhoneNumber', phoneNumber.text);
-                        }
-                      },
+                      onPressed: () async {},
                     )),
                   ],
                 )

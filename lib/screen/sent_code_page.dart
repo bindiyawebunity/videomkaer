@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:pinput/pinput.dart';
 import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
@@ -7,7 +7,8 @@ import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/home_page.dart';
 
 class SentCodePage extends StatefulWidget {
-  const SentCodePage({Key? key}) : super(key: key);
+  final String? phone;
+  const SentCodePage({Key? key, this.phone}) : super(key: key);
 
   @override
   State<SentCodePage> createState() => _SentCodePageState();
@@ -48,25 +49,19 @@ class _SentCodePageState extends State<SentCodePage> {
             const SizedBox(
               height: 25,
             ),
-            OtpTextField(
-              numberOfFields: 6,
-              borderColor: Colors.white,
-              textStyle: TextStyle(color: ColorFile.textColor),
-
-              showFieldAsBox: true,
-
-              onCodeChanged: (String code) {},
-
-              onSubmit: (String verificationCode) {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        title: const Text("Verification Code"),
-                        content: Text('Code entered is $verificationCode'),
-                      );
-                    });
-              }, // end onSubmit
+            Pinput(
+              length: 6,
+              showCursor: true,
+              defaultPinTheme: PinTheme(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: Colors.black),
+                ),
+                textStyle: const TextStyle(color: Colors.black),
+              ),
+              onSubmitted: (value) {},
             ),
             const SizedBox(
               height: 30,
