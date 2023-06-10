@@ -21,7 +21,6 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,32 +152,30 @@ class _LoginPageState extends State<LoginPage> {
                             text: "Login",
                             backgroundColor: ColorFile.elevatedColor,
                             onPressed: () async {
-
-                              // var loginEmail = email.text.trim();
-                              // var loginPassword = password.text.trim();
-                              // try {
-                              //   final User? firebaseUsers = (await FirebaseAuth
-                              //           .instance
-                              //           .signInWithEmailAndPassword(
-                              //               email: loginEmail,
-                              //               password: loginPassword))
-                              //       .user;
-                              //   if (firebaseUsers != null) {
-                              //     Navigator.push(
-                              //         context,
-                              //         MaterialPageRoute(
-                              //           builder: (context) => const HomePage(),
-                              //         ));
-                              //   } else {
-                              //     const SnackBar(
-                              //         content: Text("check Email & Password"));
-                              //   }
-                              // } on FirebaseAuthException catch (e) {
-                              //   if (kDebugMode) {
-                              //     print("error$e");
-                              //   }
-                              // }
-
+                              var loginEmail = email.text.trim();
+                              var loginPassword = password.text.trim();
+                              try {
+                                final User? firebaseUsers = (await FirebaseAuth
+                                        .instance
+                                        .signInWithEmailAndPassword(
+                                            email: loginEmail,
+                                            password: loginPassword))
+                                    .user;
+                                if (firebaseUsers != null) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const HomePage(),
+                                      ));
+                                } else {
+                                  const SnackBar(
+                                      content: Text("check Email & Password"));
+                                }
+                              } on FirebaseAuthException catch (e) {
+                                if (kDebugMode) {
+                                  print("error$e");
+                                }
+                              }
                             })),
                   ],
                 ),

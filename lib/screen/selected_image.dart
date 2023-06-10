@@ -12,11 +12,9 @@ class SelectedImagePage extends StatefulWidget {
 class _SelectedImagePageState extends State<SelectedImagePage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
     );
   }
 }

@@ -87,7 +87,8 @@ class _SettingPageState extends State<SettingPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const PrivacyPolicyPage(),
+                                  builder: (context) =>
+                                      const PrivacyPolicyPage(),
                                 ));
                           },
                           icon: const Icon(
@@ -109,7 +110,8 @@ class _SettingPageState extends State<SettingPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const TermsOfServicePage(),
+                                  builder: (context) =>
+                                      const TermsOfServicePage(),
                                 ));
                           },
                           icon: const Icon(
