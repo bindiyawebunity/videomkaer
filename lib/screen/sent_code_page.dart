@@ -49,7 +49,7 @@ class _SentCodePageState extends State<SentCodePage> {
               height: 25,
             ),
             OtpTextField(
-              numberOfFields: 4,
+              numberOfFields: 6,
               borderColor: Colors.white,
               textStyle: TextStyle(color: ColorFile.textColor),
 

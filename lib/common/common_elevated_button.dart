@@ -33,6 +33,7 @@ class _CommonElevatedButtonState extends State<CommonElevatedButton> {
           borderRadius: BorderRadius.circular(20.0),
           gradient: widget.gradient),
       child: ElevatedButton(
+
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           disabledForegroundColor: Colors.transparent.withOpacity(0.38),
