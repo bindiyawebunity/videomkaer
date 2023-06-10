@@ -346,42 +346,46 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   itemCount: name.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return Stack(
-                      children: [
-                        Container(
-                          height: 240,
-                          width: 170,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Image(
-                              fit: BoxFit.fill,
-                              image: AssetImage(
-                                image[index],
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 180.0),
-                          child: Container(
-                            height: 40,
-                            width: 200,
+                    return InkWell(
+                      onTap: () {},
+                      child: Stack(
+                        children: [
+                          Container(
+                            height: 240,
+                            width: 170,
                             decoration: BoxDecoration(
-                                color: const Color(0xFF040404).withOpacity(0.5),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(15),
-                                  bottomLeft: Radius.circular(15),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Image(
+                                fit: BoxFit.fill,
+                                image: AssetImage(
+                                  image[index],
                                 )),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 60.0, top: 15),
-                              child: Text(
-                                name[index],
-                                style: const TextStyle(color: Colors.white),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 180.0),
+                            child: Container(
+                              height: 40,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFF040404).withOpacity(0.5),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(15),
+                                    bottomLeft: Radius.circular(15),
+                                  )),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 60.0, top: 15),
+                                child: Text(
+                                  name[index],
+                                  style: const TextStyle(color: Colors.white),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),
