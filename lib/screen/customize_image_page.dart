@@ -35,7 +35,9 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
       appBar: AppBar(
         backgroundColor: ColorFile.backGroundColor,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(
               Icons.close,
               color: Colors.white,
