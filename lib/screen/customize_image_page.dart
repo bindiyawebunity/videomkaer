@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/selected_image.dart';
 
 import '../model/color.dart';
 
@@ -52,7 +53,9 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
         )),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedImagePage(),));
+              },
               icon: const Icon(
                 Icons.check,
                 color: Colors.white,
