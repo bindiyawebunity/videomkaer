@@ -128,7 +128,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   ),
                   child: const Center(
                       child: Text(
-                    "4.8",
+                    "0.4",
                     style: TextStyle(color: Colors.white),
                   )),
                 ),
@@ -144,7 +144,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   ),
                   child: const Center(
                       child: Text(
-                    "4.8",
+                    "0.3",
                     style: TextStyle(color: Colors.white),
                   )),
                 ),
@@ -160,7 +160,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   ),
                   child: const Center(
                       child: Text(
-                    "4.8",
+                    "0.3",
                     style: TextStyle(color: Colors.white),
                   )),
                 ),
@@ -176,7 +176,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   ),
                   child: const Center(
                       child: Text(
-                    "4.8",
+                    "0.6",
                     style: TextStyle(color: Colors.white),
                   )),
                 ),
@@ -192,7 +192,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   ),
                   child: const Center(
                       child: Text(
-                    "4.8",
+                    "0.4",
                     style: TextStyle(color: Colors.white),
                   )),
                 ),

@@ -1,9 +1,5 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:videomaker/screen/customize_image_page.dart';
-import 'package:videomaker/screen/edit_page.dart';
-import 'package:videomaker/screen/selected_image.dart';
-import 'package:videomaker/screen/use_template_page.dart';
+import 'package:videomaker/screen/welcome_screen.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +20,7 @@ class MyApp extends StatelessWidget {
           radioTheme: RadioThemeData(
               fillColor:
                   MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const EditPage(),
+      home: const WelcomeScreen(),
     );
   }
 }

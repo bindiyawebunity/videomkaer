@@ -54,7 +54,11 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SelectedImagePage(),));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SelectedImagePage(),
+                    ));
               },
               icon: const Icon(
                 Icons.check,

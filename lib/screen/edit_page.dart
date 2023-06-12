@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:videomaker/screen/save_video_page.dart';
 import '../model/color.dart';
 
 class EditPage extends StatefulWidget {
@@ -34,6 +34,23 @@ class _EditPageState extends State<EditPage> {
               fontSize: 18,
               fontWeight: FontWeight.bold),
         )),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SaveVideoPage(),
+                    ));
+              },
+              icon: const Icon(
+                Icons.check,
+                color: Colors.white,
+              )),
+          const SizedBox(
+            width: 20,
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -52,7 +69,7 @@ class _EditPageState extends State<EditPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 50.0, top: 120),
+              padding: const EdgeInsets.only(left: 30.0, top: 120),
               child: Row(
                 children: [
                   Container(
@@ -69,7 +86,7 @@ class _EditPageState extends State<EditPage> {
                     )),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
                   Container(
                     height: 40,
@@ -85,7 +102,7 @@ class _EditPageState extends State<EditPage> {
                     )),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
                   Container(
                     height: 40,
@@ -101,7 +118,7 @@ class _EditPageState extends State<EditPage> {
                     )),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
                   Container(
                     height: 40,
@@ -117,7 +134,7 @@ class _EditPageState extends State<EditPage> {
                     )),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
                   Container(
                     height: 40,
@@ -133,7 +150,7 @@ class _EditPageState extends State<EditPage> {
                     )),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 30,
                   ),
                   Container(
                     height: 40,
@@ -148,14 +165,12 @@ class _EditPageState extends State<EditPage> {
                       color: Colors.white,
                     )),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
+                  const SizedBox(width: 30),
                 ],
               ),
             ),
             const Padding(
-              padding: EdgeInsets.only(left: 50.0, top: 10),
+              padding: EdgeInsets.only(left: 35.0, top: 10),
               child: Row(
                 children: [
                   Text(
@@ -163,35 +178,35 @@ class _EditPageState extends State<EditPage> {
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 35,
+                    width: 40,
                   ),
                   Text(
                     "Canvas",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 25,
+                    width: 35,
                   ),
                   Text(
                     "Filter",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 40,
                   ),
                   Text(
                     "Effect",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 40,
                   ),
                   Text(
                     "Text",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                   SizedBox(
-                    width: 30,
+                    width: 45,
                   ),
                   Text(
                     "Frame",
@@ -199,7 +214,7 @@ class _EditPageState extends State<EditPage> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

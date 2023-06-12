@@ -1,13 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:videomaker/common/Common_Text_Field.dart';
 import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
-import 'package:videomaker/screen/home_page.dart';
 import 'package:videomaker/screen/sign_up.dart';
+
+import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -162,11 +162,11 @@ class _LoginPageState extends State<LoginPage> {
                               //                 password: loginPassword))
                               //         .user;
                               //     if (firebaseUsers != null) {
-                              //       Navigator.push(
-                              //           context,
-                              //           MaterialPageRoute(
-                              //             builder: (context) => const HomePage(),
-                              //           ));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => const HomePage(),
+                                        ));
                               //     } else {
                               //       const SnackBar(
                               //           content: Text("check Email & Password"));

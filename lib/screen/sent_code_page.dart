@@ -57,9 +57,9 @@ class _SentCodePageState extends State<SentCodePage> {
                 width: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Colors.black),
+                  border: Border.all(color: Colors.white),
                 ),
-                textStyle: const TextStyle(color: Colors.black),
+                textStyle: const TextStyle(color: Colors.white),
               ),
               onSubmitted: (value) {},
             ),

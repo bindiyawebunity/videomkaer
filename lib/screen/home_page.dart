@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/searchPage.dart';
 import 'package:videomaker/screen/setting_page.dart';
+import 'package:videomaker/screen/use_template_page.dart';
+import 'package:videomaker/screen/video_edit_page.dart';
 import '../model/TextStyle.dart';
 import '../model/color.dart';
 
@@ -275,42 +277,52 @@ class _HomePageState extends State<HomePage> {
                       mainAxisSpacing: 8,
                       crossAxisSpacing: 8),
                   itemBuilder: (BuildContext context, int index) {
-                    return Stack(
-                      children: [
-                        Container(
-                          height: 230,
-                          width: 165,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Image(
-                              fit: BoxFit.fill,
-                              image: AssetImage(
-                                mainImage[index],
-                              )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 140.0),
-                          child: Container(
-                            height: 40,
-                            width: 200,
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const VideoEditPage(),
+                            ));
+                      },
+                      child: Stack(
+                        children: [
+                          Container(
+                            height: 230,
+                            width: 165,
                             decoration: BoxDecoration(
-                                color: const Color(0xFF040404).withOpacity(0.5),
-                                borderRadius: const BorderRadius.only(
-                                  bottomRight: Radius.circular(15),
-                                  bottomLeft: Radius.circular(15),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Image(
+                                fit: BoxFit.fill,
+                                image: AssetImage(
+                                  mainImage[index],
                                 )),
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 25.0, top: 8),
-                              child: Text(
-                                mainName[index],
-                                style: const TextStyle(color: Colors.white),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 140.0),
+                            child: Container(
+                              height: 40,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xFF040404).withOpacity(0.5),
+                                  borderRadius: const BorderRadius.only(
+                                    bottomRight: Radius.circular(15),
+                                    bottomLeft: Radius.circular(15),
+                                  )),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 25.0, top: 8),
+                                child: Text(
+                                  mainName[index],
+                                  style: const TextStyle(color: Colors.white),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),
@@ -347,7 +359,13 @@ class _HomePageState extends State<HomePage> {
                   itemCount: name.length,
                   itemBuilder: (BuildContext context, int index) {
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const UseTemplatePage(),
+                            ));
+                      },
                       child: Stack(
                         children: [
                           Container(
