@@ -59,7 +59,7 @@ class _SentCodePageState extends State<SentCodePage> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.white),
                 ),
-                textStyle: const TextStyle(color: Colors.white),
+                textStyle:  TextStyle(color: ColorFile.textColor),
               ),
               onSubmitted: (value) {},
             ),

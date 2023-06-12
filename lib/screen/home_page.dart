@@ -89,35 +89,35 @@ class _HomePageState extends State<HomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ListTile(
-                      leading: const Icon(
+                      leading: Icon(
                         Icons.person,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                       ),
                       title: Text(
                         finalUserName,
-                        style: const TextStyle(
-                          color: Colors.white,
+                        style: TextStyle(
+                          color: ColorFile.textColor,
                         ),
                       ),
                     ),
                     ListTile(
-                      leading: const Icon(
+                      leading: Icon(
                         Icons.email,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                       ),
                       title: Text(
                         finalEmail,
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     ListTile(
-                      leading: const Icon(
+                      leading: Icon(
                         Icons.phone,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                       ),
                       title: Text(
                         finalPhoneNumber,
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                   ],
@@ -133,12 +133,12 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.person, color: Colors.white)),
+                        icon: Icon(Icons.person, color: ColorFile.iconColor)),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "Profile",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     )
                   ],
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                             builder: (context) => const SettingPage(),
                           ));
                     },
-                    icon: const Icon(Icons.settings, color: Colors.white)),
+                    icon: Icon(Icons.settings, color: ColorFile.iconColor)),
                 TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -167,9 +167,9 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => const SettingPage(),
                         ));
                   },
-                  child: const Text(
+                  child: Text(
                     "Setting",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   ),
                 )
               ],
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 IconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.lock, color: Colors.white)),
+                    icon: Icon(Icons.lock, color: ColorFile.iconColor)),
                 TextButton(
                   onPressed: () {
                     showDialog(
@@ -231,9 +231,9 @@ class _HomePageState extends State<HomePage> {
                       },
                     );
                   },
-                  child: const Text(
+                  child: Text(
                     "Log Out",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   ),
                 )
               ],
@@ -316,7 +316,7 @@ class _HomePageState extends State<HomePage> {
                                     const EdgeInsets.only(left: 25.0, top: 8),
                                 child: Text(
                                   mainName[index],
-                                  style: const TextStyle(color: Colors.white),
+                                  style: TextStyle(color: ColorFile.textColor),
                                 ),
                               ),
                             ),
@@ -397,7 +397,7 @@ class _HomePageState extends State<HomePage> {
                                     const EdgeInsets.only(left: 60.0, top: 15),
                                 child: Text(
                                   name[index],
-                                  style: const TextStyle(color: Colors.white),
+                                  style: TextStyle(color: ColorFile.textColor),
                                 ),
                               ),
                             ),
@@ -472,7 +472,7 @@ class _HomePageState extends State<HomePage> {
                                   const EdgeInsets.only(left: 25.0, top: 8),
                               child: Text(
                                 name2[index],
-                                style: const TextStyle(color: Colors.white),
+                                style: TextStyle(color: ColorFile.textColor),
                               ),
                             ),
                           ),

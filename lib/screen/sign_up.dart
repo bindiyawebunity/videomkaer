@@ -1,8 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/phone_verification_page.dart';
 import '../common/Common_Text_Field.dart';
@@ -49,11 +46,11 @@ class _SignUpPageState extends State<SignUpPage> {
                         style: TextStyleFile.signUpPageText,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "UserName",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(
@@ -70,11 +67,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       iconData: Icons.account_circle,
                       hintText: "XYZ",
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "Email",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(
@@ -91,11 +88,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       iconData: Icons.email,
                       hintText: "abc@gmail.com",
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "password",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(
@@ -123,8 +120,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           padding: const EdgeInsets.only(left: 175.0),
                           child: Text(
                             StringFile.signUpPageText,
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.white),
+                            style: TextStyle(
+                                fontSize: 14, color: ColorFile.textColor),
                           ),
                         ),
                         TextButton(
@@ -135,10 +132,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                     builder: (context) => const LoginPage(),
                                   ));
                             },
-                            child: const Text(
+                            child: Text(
                               "Login",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: ColorFile.textColor,
                                   fontWeight: FontWeight.bold),
                             ))
                       ],

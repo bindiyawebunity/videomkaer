@@ -21,9 +21,9 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
         title: Center(
             child: Text(
@@ -42,9 +42,9 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
                       builder: (context) => const SelectedImagePage(),
                     ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.check,
-                color: Colors.white,
+                color: ColorFile.iconColor,
               )),
           const SizedBox(
             width: 30,
@@ -84,12 +84,12 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => EditPage(),
+                                builder: (context) => const EditPage(),
                               ));
                         },
-                        child: const Text(
+                        child: Text(
                           "Edit",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         )),
                   ),
                 ),

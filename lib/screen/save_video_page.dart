@@ -20,18 +20,22 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => HomePage(),));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.check,
-                color: Colors.white,
+                color: ColorFile.iconColor,
               )),
           const SizedBox(
             width: 20,
@@ -79,7 +83,7 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
                   height: 38,
                   width: 136,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Center(
@@ -96,7 +100,7 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
                   height: 38,
                   width: 136,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Center(

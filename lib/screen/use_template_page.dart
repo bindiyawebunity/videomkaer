@@ -20,9 +20,9 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
       ),
       backgroundColor: ColorFile.backGroundColor,
@@ -37,7 +37,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     height: 450,
                     width: 250,
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.white, width: 1.5)),
                     child: const Image(
@@ -52,51 +52,51 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                 children: [
                   IconButton(
                       onPressed: () {},
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.save,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                         size: 15,
                       )),
                   IconButton(
                       onPressed: () {},
-                      icon: const Icon(
+                      icon: Icon(
                         FontAwesomeIcons.music,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                         size: 15,
                       )),
                   IconButton(
                       onPressed: () {},
-                      icon: const Icon(
+                      icon: Icon(
                         FontAwesomeIcons.a,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                         size: 15,
                       )),
                   IconButton(
                       onPressed: () {},
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.upload,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                         size: 15,
                       )),
                 ],
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 170.0, top: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 170.0, top: 20),
             child: Text(
               "Use as Template",
               style: TextStyle(
-                  color: Colors.white,
+                  color: ColorFile.textColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 130.0, top: 20),
+          Padding(
+            padding: const EdgeInsets.only(left: 130.0, top: 20),
             child: Text(
               "Replace all the clips with your own",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             ),
           ),
           Padding(
@@ -107,13 +107,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "4.8",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
                 const SizedBox(
@@ -123,13 +123,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "0.4",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
                 const SizedBox(
@@ -139,13 +139,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "0.3",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
                 const SizedBox(
@@ -155,13 +155,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "0.3",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
                 const SizedBox(
@@ -171,13 +171,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "0.6",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
                 const SizedBox(
@@ -187,13 +187,13 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   height: 58,
                   width: 40,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  child: const Center(
+                  child: Center(
                       child: Text(
                     "0.4",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
               ],
@@ -210,9 +210,9 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF716E6E)),
                   onPressed: () {},
-                  child: const Text(
+                  child: Text(
                     "+ Add Media",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: ColorFile.textColor),
                   )),
             ),
           )
@@ -220,9 +220,9 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFFE68A96),
-        child: const Icon(
+        child: Icon(
           Icons.arrow_forward,
-          color: Colors.white,
+          color: ColorFile.iconColor,
         ),
         onPressed: () {
           Navigator.push(

@@ -25,12 +25,12 @@ class _SettingPageState extends State<SettingPage> {
           icon: const Icon(
             Icons.arrow_back_ios_new,
           ),
-          color: Colors.white,
+          color: ColorFile.iconColor,
         ),
-        title: const Center(
+        title: Center(
           child: Text(
             "Settings",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: ColorFile.textColor),
           ),
         ),
       ),
@@ -52,13 +52,13 @@ class _SettingPageState extends State<SettingPage> {
                 child: Column(
                   children: [
                     ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           Icons.language,
-                          color: Colors.white,
+                          color: ColorFile.iconColor,
                         ),
-                        title: const Text(
+                        title: Text(
                           "Language",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -68,19 +68,19 @@ class _SettingPageState extends State<SettingPage> {
                                   builder: (context) => const LanguagePage(),
                                 ));
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.navigate_next,
-                            color: Colors.white,
+                            color: ColorFile.iconColor,
                           ),
                         )),
                     ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           Icons.privacy_tip,
-                          color: Colors.white,
+                          color: ColorFile.iconColor,
                         ),
-                        title: const Text(
+                        title: Text(
                           "Privacy Policy",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -91,19 +91,19 @@ class _SettingPageState extends State<SettingPage> {
                                       const PrivacyPolicyPage(),
                                 ));
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.navigate_next,
-                            color: Colors.white,
+                            color: ColorFile.iconColor,
                           ),
                         )),
                     ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           Icons.save_as_sharp,
-                          color: Colors.white,
+                          color: ColorFile.iconColor,
                         ),
-                        title: const Text(
+                        title: Text(
                           "Terms & Conditions",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -114,41 +114,41 @@ class _SettingPageState extends State<SettingPage> {
                                       const TermsOfServicePage(),
                                 ));
                           },
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.navigate_next,
-                            color: Colors.white,
+                            color: ColorFile.iconColor,
                           ),
                         )),
                     ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           Icons.mail,
-                          color: Colors.white,
+                          color: ColorFile.iconColor,
                         ),
-                        title: const Text(
+                        title: Text(
                           "Contact Us",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         ),
                         trailing: IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.navigate_next,
-                            color: Colors.white,
+                            color: ColorFile.iconColor,
                           ),
                         )),
                     ListTile(
-                        leading: const Icon(
+                        leading: Icon(
                           FontAwesomeIcons.instagram,
-                          color: Colors.red,
+                          color: ColorFile.iconColor,
                         ),
-                        title: const Text(
+                        title: Text(
                           "Instagram",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: ColorFile.textColor),
                         ),
                         trailing: IconButton(
                           onPressed: () {},
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.navigate_next,
-                            color: Colors.white,
+                            color: ColorFile.iconColor,
                           ),
                         )),
                   ],

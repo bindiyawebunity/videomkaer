@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/searchPage.dart';
 import 'package:videomaker/screen/welcome_screen.dart';
 
 Future<void> main() async {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           radioTheme: RadioThemeData(
               fillColor:
                   MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const WelcomeScreen(),
+      home: const SearchPage(),
     );
   }
 }

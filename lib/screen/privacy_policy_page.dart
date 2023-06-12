@@ -19,44 +19,44 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
-        title: const Center(
+        title: Center(
           child: Text(
             "Privacy Policy",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: ColorFile.textColor),
           ),
         ),
       ),
       backgroundColor: ColorFile.backGroundColor,
-      body: const Padding(
-        padding: EdgeInsets.all(15.0),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Last Revised: December 25, 2021",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Text(
-              "This Document “Privacy Policy” (Hereinafter \n Referred to as “Policy”) is the terms and con-\n editions for Collection and use of the Personal \nInformation of the User (Hereinafter refered \n"
+              "This Document “Privacy Policy” (Hereinafter \n Referred to as “Policy”) is the terms and con-\n editions for Collection and use of the Personal \nInformation of the User (Hereinafter referred \n"
               "to also as “you”)by Wot Digital Hereinafter A.S \n((Hereinafter Referred to as “Wot”during \nDownload, Installation and Use of the Mobile\n Application,",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               "1. Types of Data We Collect.",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -65,17 +65,17 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               "collected data and how you use that data. The important"
               " objective of a privacy policy is to inform users how you"
               " collect, use and manage the collected.",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               "2. Use of Your Personal Data",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -83,17 +83,17 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               "is a free generator of privacy policies for websites, apps & "
               "Facebook pages/app. You can use our free generator to create "
               "the privacy policy for your business.",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
               "Disclosure of Your Personal Data",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Text(
@@ -101,7 +101,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               " policy is required by law if you collect data from users, "
               "either directly or indirectly. For example, if you have a "
               "contact form on your website you need a privacy policy.",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ColorFile.textColor),
             )
           ],
         ),

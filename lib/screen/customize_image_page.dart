@@ -39,9 +39,9 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
         title: Center(
             child: Text(
@@ -57,12 +57,12 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SelectedImagePage(),
+                      builder: (context) => const SelectedImagePage(),
                     ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.check,
-                color: Colors.white,
+                color: ColorFile.iconColor,
               )),
           const SizedBox(
             width: 30,

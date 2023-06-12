@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:videomaker/screen/save_video_page.dart';
-
 import '../model/color.dart';
 
 class VideoEditPage extends StatefulWidget {
@@ -22,9 +21,9 @@ class _VideoEditPageState extends State<VideoEditPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
         title: Center(
             child: Text(
@@ -43,9 +42,9 @@ class _VideoEditPageState extends State<VideoEditPage> {
                       builder: (context) => const SaveVideoPage(),
                     ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.check,
-                color: Colors.white,
+                color: ColorFile.iconColor,
               )),
           const SizedBox(
             width: 20,
@@ -68,16 +67,16 @@ class _VideoEditPageState extends State<VideoEditPage> {
                 padding: const EdgeInsets.only(top: 360.0),
                 child: IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.play_arrow_outlined,
-                      color: Colors.white),
+                  icon: Icon(Icons.play_arrow_outlined,
+                      color: ColorFile.iconColor),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 360.0, left: 450),
                 child: IconButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.qr_code_scanner_outlined,
-                      color: Colors.white),
+                  icon: Icon(Icons.qr_code_scanner_outlined,
+                      color: ColorFile.iconColor),
                 ),
               ),
             ],
@@ -91,10 +90,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     Icons.filter,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -105,10 +104,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     Icons.qr_code_scanner,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -119,10 +118,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     FontAwesomeIcons.textHeight,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -133,10 +132,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     Icons.crop,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -147,10 +146,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     Icons.color_lens,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -161,10 +160,10 @@ class _VideoEditPageState extends State<VideoEditPage> {
                   width: 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
-                      color: Colors.grey),
-                  child: const Icon(
+                      color: ColorFile.editPageContainerColor),
+                  child: Icon(
                     Icons.speed,
-                    color: Colors.white,
+                    color: ColorFile.iconColor,
                   ),
                 ),
                 const SizedBox(
@@ -173,48 +172,48 @@ class _VideoEditPageState extends State<VideoEditPage> {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 55.0, top: 10),
+          Padding(
+            padding: const EdgeInsets.only(left: 55.0, top: 10),
             child: Row(
               children: [
                 Text(
                   "filter",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 Text(
                   "Canvas",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 35,
                 ),
                 Text(
                   "Text",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 45,
                 ),
                 Text(
                   "Crop",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 45,
                 ),
                 Text(
                   "Color",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 40,
                 ),
                 Text(
                   "Speed",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                 ),
               ],
             ),

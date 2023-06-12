@@ -19,14 +19,14 @@ class _LanguagePageState extends State<LanguagePage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
-        title: const Center(
+        title: Center(
           child: Text(
             "Language",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: ColorFile.textColor),
           ),
         ),
       ),
@@ -37,9 +37,9 @@ class _LanguagePageState extends State<LanguagePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 " Suggested Language ",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(color: ColorFile.textColor, fontSize: 20),
               ),
               const SizedBox(
                 height: 30,
@@ -53,9 +53,9 @@ class _LanguagePageState extends State<LanguagePage> {
                   child: Column(
                     children: [
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "English (US)",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               value: "English (US)",
@@ -66,9 +66,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "English (UK)",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -86,9 +86,9 @@ class _LanguagePageState extends State<LanguagePage> {
               const SizedBox(
                 height: 30,
               ),
-              const Text(
+              Text(
                 " Language ",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(color: ColorFile.textColor, fontSize: 20),
               ),
               const SizedBox(
                 height: 30,
@@ -102,9 +102,9 @@ class _LanguagePageState extends State<LanguagePage> {
                   child: Column(
                     children: [
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Deutsch",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -118,9 +118,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Hindi",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -134,9 +134,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Spanish",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -150,9 +150,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "French",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -166,9 +166,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Arabic",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -182,9 +182,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Bengali",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -198,9 +198,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Russion",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -214,9 +214,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Italiano",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,
@@ -230,9 +230,9 @@ class _LanguagePageState extends State<LanguagePage> {
                                 });
                               })),
                       ListTile(
-                          title: const Text(
+                          title: Text(
                             "Espanol",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: ColorFile.textColor),
                           ),
                           trailing: Radio(
                               activeColor: Colors.red,

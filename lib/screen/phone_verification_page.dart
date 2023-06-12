@@ -57,11 +57,11 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "PhoneNumber",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(

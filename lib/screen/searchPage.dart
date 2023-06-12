@@ -71,13 +71,13 @@ class _SearchPageState extends State<SearchPage> {
                   itemCount: name.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      leading: const Icon(
+                      leading: Icon(
                         Icons.trending_up,
-                        color: Colors.white,
+                        color: ColorFile.iconColor,
                       ),
                       title: Text(
                         name[index],
-                        style: const TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     );
                   },

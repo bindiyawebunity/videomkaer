@@ -6,4 +6,6 @@ class ColorFile {
   static Color elevatedColor = Colors.white;
   static Color elevatedTextColor = Colors.black;
   static Color textFieldColor = Colors.white;
+  static Color iconColor = Colors.white;
+  static Color editPageContainerColor = Colors.grey;
 }

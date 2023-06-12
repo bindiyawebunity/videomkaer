@@ -22,9 +22,9 @@ class _EditPageState extends State<EditPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.close,
-              color: Colors.white,
+              color: ColorFile.iconColor,
             )),
         title: Center(
             child: Text(
@@ -43,9 +43,9 @@ class _EditPageState extends State<EditPage> {
                       builder: (context) => const SaveVideoPage(),
                     ));
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.check,
-                color: Colors.white,
+                color: ColorFile.iconColor,
               )),
           const SizedBox(
             width: 20,
@@ -76,13 +76,13 @@ class _EditPageState extends State<EditPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: ColorFile.editPageContainerColor,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       Icons.crop,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(
@@ -92,13 +92,13 @@ class _EditPageState extends State<EditPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: ColorFile.editPageContainerColor,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       Icons.settings_overscan,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(
@@ -108,13 +108,13 @@ class _EditPageState extends State<EditPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: ColorFile.editPageContainerColor,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       FontAwesomeIcons.filter,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(
@@ -124,13 +124,13 @@ class _EditPageState extends State<EditPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: ColorFile.editPageContainerColor,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       CupertinoIcons.arrow_2_squarepath,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(
@@ -140,13 +140,13 @@ class _EditPageState extends State<EditPage> {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: ColorFile.editPageContainerColor,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       FontAwesomeIcons.textHeight,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(
@@ -159,58 +159,58 @@ class _EditPageState extends State<EditPage> {
                       color: Colors.grey,
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: const Center(
+                    child: Center(
                         child: Icon(
                       FontAwesomeIcons.phoenixFramework,
-                      color: Colors.white,
+                      color: ColorFile.iconColor,
                     )),
                   ),
                   const SizedBox(width: 30),
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 35.0, top: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 35.0, top: 10),
               child: Row(
                 children: [
                   Text(
                     "Crop",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 40,
                   ),
                   Text(
                     "Canvas",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 35,
                   ),
                   Text(
                     "Filter",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 40,
                   ),
                   Text(
                     "Effect",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 40,
                   ),
                   Text(
                     "Text",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 45,
                   ),
                   Text(
                     "Frame",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
                   ),
                 ],
               ),

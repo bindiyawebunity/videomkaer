@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:videomaker/common/Common_Text_Field.dart';
 import 'package:videomaker/common/common_elevated_button.dart';
@@ -62,11 +61,11 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyleFile.loginPageText,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "Email",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(
@@ -83,11 +82,11 @@ class _LoginPageState extends State<LoginPage> {
                       iconData: Icons.mail,
                       hintText: "abc@gmail.com",
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 40),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0, top: 40),
                       child: Text(
                         "Password",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
                     const SizedBox(
@@ -122,8 +121,8 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.only(left: 130.0),
                           child: Text(
                             StringFile.loginPageLast,
-                            style: const TextStyle(
-                                fontSize: 14, color: Colors.white),
+                            style: TextStyle(
+                                fontSize: 14, color: ColorFile.textColor),
                           ),
                         ),
                         TextButton(
@@ -134,10 +133,10 @@ class _LoginPageState extends State<LoginPage> {
                                     builder: (context) => const SignUpPage(),
                                   ));
                             },
-                            child: const Text(
+                            child: Text(
                               "SignUp",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: ColorFile.textColor,
                                   fontWeight: FontWeight.bold),
                             ))
                       ],
@@ -162,11 +161,11 @@ class _LoginPageState extends State<LoginPage> {
                               //                 password: loginPassword))
                               //         .user;
                               //     if (firebaseUsers != null) {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => const HomePage(),
-                                        ));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const HomePage(),
+                                  ));
                               //     } else {
                               //       const SnackBar(
                               //           content: Text("check Email & Password"));
