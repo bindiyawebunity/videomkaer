@@ -100,7 +100,107 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 200, left: 20),
+            padding: const EdgeInsets.only(left: 70, top: 70),
+            child: Row(
+              children: [
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  height: 58,
+                  width: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "4.8",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 140, left: 70),
             child: Container(
               height: 40,
               width: 200,

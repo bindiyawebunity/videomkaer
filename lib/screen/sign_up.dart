@@ -153,27 +153,27 @@ class _SignUpPageState extends State<SignUpPage> {
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {
-                        var userName = username.text.trim();
-                        var userEmail = email.text.trim();
-                        var userPassword = password.text.trim();
-
-                        FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                                email: userEmail, password: userPassword)
-                            .then((value) {
-                          FirebaseFirestore.instance
-                              .collection("users")
-                              .doc()
-                              .set({
-                            "username": userName,
-                            "email": userEmail,
-                            "password": userPassword,
-                          });
-
-                          if (kDebugMode) {
-                            print("data created");
-                          }
-                        });
+                        // var userName = username.text.trim();
+                        // var userEmail = email.text.trim();
+                        // var userPassword = password.text.trim();
+                        //
+                        // FirebaseAuth.instance
+                        //     .createUserWithEmailAndPassword(
+                        //         email: userEmail, password: userPassword)
+                        //     .then((value) {
+                        //   FirebaseFirestore.instance
+                        //       .collection("users")
+                        //       .doc()
+                        //       .set({
+                        //     "username": userName,
+                        //     "email": userEmail,
+                        //     "password": userPassword,
+                        //   });
+                        //
+                        //   if (kDebugMode) {
+                        //     print("data created");
+                        //   }
+                        // });
 
                         if (_formKey.currentState!.validate()) {
                           Navigator.push(
