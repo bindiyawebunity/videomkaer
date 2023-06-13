@@ -3,8 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/customize_image_page.dart';
 
-import 'login_page.dart';
-
 class UseTemplatePage extends StatefulWidget {
   const UseTemplatePage({Key? key}) : super(key: key);
 
@@ -210,44 +208,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF716E6E)),
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                            title: const Text(
-                              'CHOICE MEDIA',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                            content: const SingleChildScrollView(
-                              child: ListBody(
-                                children: <Widget>[
-                                  Text("What you want to add image or video?"),
-                                ],
-                              ),
-                            ),
-                            actions: <Widget>[
-                              Row(
-                                children: [
-                                  const SizedBox(
-                                    width: 30,
-                                  ),
-                                  ElevatedButton(
-                                      onPressed: () {},
-                                      child: const Text("video's")),
-                                  const SizedBox(
-                                    width: 90,
-                                  ),
-                                  ElevatedButton(
-                                      onPressed: () {},
-                                      child: const Text("Photos"))
-                                ],
-                              )
-                            ]);
-                      },
-                    );
-                  },
+                  onPressed: () {},
                   child: Text(
                     "+ Add Media",
                     style: TextStyle(color: ColorFile.textColor),

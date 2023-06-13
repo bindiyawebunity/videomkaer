@@ -50,6 +50,7 @@ dependencies:
   flutter_native_splash: any
   intl_phone_field: any
   country_picker: ^2.0.20
+  image_picker_for_web: ^2.1.12
 
 
 

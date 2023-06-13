@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:videomaker/screen/edit_page.dart';
+import 'package:videomaker/screen/selected_image.dart';
 import 'package:videomaker/screen/use_template_page.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'model/color.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
           radioTheme: RadioThemeData(
               fillColor:
                   MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const UseTemplatePage(),
+      home: const SelectedImagePage(),
     );
   }
 }

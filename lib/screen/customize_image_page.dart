@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:videomaker/screen/selected_image.dart';
-
 import '../model/color.dart';
 
 class CustomizeImagePage extends StatefulWidget {
