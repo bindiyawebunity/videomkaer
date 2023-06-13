@@ -16,7 +16,7 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       appBar: AppBar(
-        backgroundColor: ColorFile.backGroundColor,
+
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

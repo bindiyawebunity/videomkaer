@@ -15,7 +15,7 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       appBar: AppBar(
-        backgroundColor: ColorFile.backGroundColor,
+
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

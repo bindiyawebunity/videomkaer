@@ -14,7 +14,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorFile.backGroundColor,
+
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

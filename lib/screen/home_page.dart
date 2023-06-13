@@ -1,8 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/screen/login_page.dart';
-import 'package:videomaker/screen/searchPage.dart';
 import 'package:videomaker/screen/setting_page.dart';
 import 'package:videomaker/screen/use_template_page.dart';
 import 'package:videomaker/screen/video_edit_page.dart';
@@ -17,9 +15,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late String finalUserName;
-  late String finalEmail;
-  late String finalPhoneNumber;
+  String? finalUserName;
+  String? finalEmail;
+  String? finalPhoneNumber;
 
   @override
   void initState() {
@@ -36,14 +34,14 @@ class _HomePageState extends State<HomePage> {
     var phoneNumber = prefs.getString('PhoneNumber');
 
     setState(() {
-      finalUserName = userName!;
-      finalEmail = email!;
-      finalPhoneNumber = phoneNumber!;
+      finalUserName = userName;
+      finalEmail = email;
+      finalPhoneNumber = phoneNumber;
     });
   }
 
   TextEditingController search = TextEditingController();
-  var nameValue = "Username";
+  // var nameValue = "Username";
 
   List mainImage = ["assets/homePage2.png", "assets/homePage.png"];
   List mainName = [
@@ -67,7 +65,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: ColorFile.backGroundColor,
         leading: const Icon(Icons.save),
         title: Center(
             child: Text(
@@ -94,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                         color: ColorFile.iconColor,
                       ),
                       title: Text(
-                        finalUserName,
+                        finalUserName ?? 'Username not available',
                         style: TextStyle(
                           color: ColorFile.textColor,
                         ),
@@ -106,7 +103,7 @@ class _HomePageState extends State<HomePage> {
                         color: ColorFile.iconColor,
                       ),
                       title: Text(
-                        finalEmail,
+                        finalEmail ?? 'Email not available',
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
@@ -116,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                         color: ColorFile.iconColor,
                       ),
                       title: Text(
-                        finalPhoneNumber,
+                        finalPhoneNumber ?? 'Phone number not available',
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
@@ -216,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   ElevatedButton(
                                       onPressed: () {
-                                        FirebaseAuth.instance.signOut();
+                                        // FirebaseAuth.instance.signOut();
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -249,11 +246,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               TextFormField(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SearchPage(),
-                      ));
+                  showSearch(context: context, delegate: DataSearch());
                 },
                 controller: search,
                 decoration: InputDecoration(
@@ -485,6 +478,99 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  final name = [
+    "Journey",
+    "Motivation",
+    "Outfit",
+    "Relax",
+  ];
+
+  final dance = [
+    "Couple dance",
+    "Romantic dance",
+    "Sisters dance",
+    "family dance",
+    "Bro&sis dance",
+    "Sports",
+    "Dance",
+    "Romantic",
+    "Funny",
+    "Animal",
+    "Vlog",
+    "Fashion"
+  ];
+
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = "";
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: AnimatedIcon(
+          icon: AnimatedIcons.menu_arrow,
+          progress: transitionAnimation,
+        ));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        height: 100,
+        width: 100,
+        child: Card(
+          color: Colors.black,
+          child: Center(
+            child: Text(
+              query,
+              style: TextStyle(color: ColorFile.textColor),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    final suggestionList =
+        query.isEmpty ? name : dance.where((p) => p.startsWith(query)).toList();
+    return ListView.builder(
+      itemCount: suggestionList.length,
+      itemBuilder: (context, index) => ListTile(
+        onTap: () {
+          showResults(context);
+        },
+        leading: const Icon(
+          Icons.trending_up,
+        ),
+        title: RichText(
+            text: TextSpan(
+                text: suggestionList[index].substring(0, query.length),
+                style: const TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+                children: [
+              TextSpan(
+                  text: suggestionList[index].substring(query.length),
+                  style: const TextStyle(color: Colors.grey))
+            ])),
       ),
     );
   }

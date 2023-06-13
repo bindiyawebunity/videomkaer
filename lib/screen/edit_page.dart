@@ -17,7 +17,7 @@ class _EditPageState extends State<EditPage> {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       appBar: AppBar(
-        backgroundColor: ColorFile.backGroundColor,
+
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);

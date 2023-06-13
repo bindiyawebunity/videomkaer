@@ -7,8 +7,9 @@ import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/home_page.dart';
 
 class SentCodePage extends StatefulWidget {
-  final String? phone;
-  const SentCodePage({Key? key, this.phone}) : super(key: key);
+  const SentCodePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<SentCodePage> createState() => _SentCodePageState();
@@ -59,7 +60,7 @@ class _SentCodePageState extends State<SentCodePage> {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.white),
                 ),
-                textStyle:  TextStyle(color: ColorFile.textColor),
+                textStyle: TextStyle(color: ColorFile.textColor),
               ),
               onSubmitted: (value) {},
             ),
