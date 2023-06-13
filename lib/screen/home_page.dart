@@ -65,7 +65,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.save),
+        leading: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.save_alt,
+              color: ColorFile.iconColor,
+            )),
         title: Center(
             child: Text(
           "Reel Maker",

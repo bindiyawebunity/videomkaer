@@ -20,6 +20,12 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController password = TextEditingController();
   TextEditingController username = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool passwordVisible = false;
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +72,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller: username,
                       iconData: Icons.account_circle,
                       hintText: "XYZ",
+                      obscureText: false,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, top: 40),
@@ -87,6 +94,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller: email,
                       iconData: Icons.email,
                       hintText: "abc@gmail.com",
+                      obscureText: false,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, top: 40),
@@ -99,6 +107,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 10,
                     ),
                     CommonTextField(
+                      iconDataSuffix: passwordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      onPressed: () {
+                        setState(
+                          () {
+                            passwordVisible = !passwordVisible;
+                          },
+                        );
+                      },
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -110,6 +128,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       controller: password,
                       iconData: Icons.lock,
                       hintText: "******",
+                      obscureText: passwordVisible,
                     ),
                     Row(
                       children: [

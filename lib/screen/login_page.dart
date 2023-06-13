@@ -20,6 +20,12 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
+  bool passwordVisible = false;
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: email,
                       iconData: Icons.mail,
                       hintText: "abc@gmail.com",
+                      obscureText: false,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, top: 40),
@@ -93,7 +100,17 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(
                       height: 15,
                     ),
-                    TextFormField(
+                    CommonTextField(
+                      iconDataSuffix: passwordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      onPressed: () {
+                        setState(
+                          () {
+                            passwordVisible = !passwordVisible;
+                          },
+                        );
+                      },
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -102,16 +119,10 @@ class _LoginPageState extends State<LoginPage> {
                         }
                         return null;
                       },
-                      obscureText: true,
                       controller: password,
-                      style: const TextStyle(color: Colors.black),
-                      decoration: InputDecoration(
-                          prefixIconColor: Colors.black,
-                          hintText: "*****",
-                          prefixIcon: const Icon(Icons.lock),
-                          fillColor: ColorFile.textFieldColor,
-                          filled: true,
-                          border: const OutlineInputBorder()),
+                      iconData: Icons.lock,
+                      hintText: "******",
+                      obscureText: passwordVisible,
                     ),
                     const SizedBox(
                       height: 15,

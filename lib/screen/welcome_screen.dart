@@ -3,6 +3,8 @@ import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
+import 'package:videomaker/screen/login_page.dart';
+import 'package:videomaker/screen/privacy_policy_page.dart';
 import 'package:videomaker/screen/sign_up.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -52,7 +54,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 height: 40,
                 text: StringFile.elevatedButton1Text,
                 backgroundColor: ColorFile.elevatedColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      ));
+                },
               ),
               const SizedBox(
                 height: 20,
@@ -62,7 +70,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 height: 40,
                 text: StringFile.elevatedButton2Text,
                 backgroundColor: ColorFile.elevatedColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PrivacyPolicyPage(),
+                      ));
+                },
               ),
               const SizedBox(
                 height: 20,

@@ -33,23 +33,7 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
               fontSize: 18,
               fontWeight: FontWeight.bold),
         )),
-        actions: [
-          IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SelectedImagePage(),
-                    ));
-              },
-              icon: Icon(
-                Icons.check,
-                color: ColorFile.iconColor,
-              )),
-          const SizedBox(
-            width: 30,
-          ),
-        ],
+
       ),
       body: Column(
         children: [

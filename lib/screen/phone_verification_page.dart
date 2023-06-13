@@ -6,6 +6,7 @@ import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/sent_code_page.dart';
 import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
+import 'package:country_picker/country_picker.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
   const PhoneVerificationPage({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
   TextEditingController phoneNumber = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+  String countryCode = "";
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +69,30 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                     const SizedBox(
                       height: 13,
                     ),
+                    // IntlPhoneField(
+                    //   decoration: const InputDecoration(
+                    //     labelText: 'Phone Number',
+                    //     border: OutlineInputBorder(
+                    //       borderSide: BorderSide(),
+                    //     ),
+                    //   ),
+                    // ),
                     CommonTextField(
+                      onPress: () {
+                        showCountryPicker(
+                          showPhoneCode: true,
+                          countryListTheme: const CountryListThemeData(
+                              textStyle:
+                                  TextStyle(fontSize: 17, color: Colors.black)),
+                          context: context,
+                          onSelect: (Country value) {
+                            countryCode = value.phoneCode.toString();
+                            setState(() {});
+                            print(value.countryCode.toString());
+                            print(value.phoneCode.toString());
+                          },
+                        );
+                      },
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter some text';
@@ -79,6 +104,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                       controller: phoneNumber,
                       iconData: Icons.phone,
                       hintText: "+91 96********",
+                      obscureText: false,
                     ),
                     const SizedBox(
                       height: 40,
