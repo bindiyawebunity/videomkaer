@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/sent_code_page.dart';
-import '../common/Common_Text_Field.dart';
 import '../common/common_elevated_button.dart';
-import 'package:country_picker/country_picker.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
   const PhoneVerificationPage({Key? key}) : super(key: key);
@@ -69,42 +68,17 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                     const SizedBox(
                       height: 13,
                     ),
-                    // IntlPhoneField(
-                    //   decoration: const InputDecoration(
-                    //     labelText: 'Phone Number',
-                    //     border: OutlineInputBorder(
-                    //       borderSide: BorderSide(),
-                    //     ),
-                    //   ),
-                    // ),
-                    CommonTextField(
-                      onPress: () {
-                        showCountryPicker(
-                          showPhoneCode: true,
-                          countryListTheme: const CountryListThemeData(
-                              textStyle:
-                                  TextStyle(fontSize: 17, color: Colors.black)),
-                          context: context,
-                          onSelect: (Country value) {
-                            countryCode = value.phoneCode.toString();
-                            setState(() {});
-                            print(value.countryCode.toString());
-                            print(value.phoneCode.toString());
-                          },
-                        );
-                      },
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter some text';
-                        } else if (value.length <= 10) {
-                          return "Phone number is invalid";
-                        }
-                        return null;
-                      },
+                    IntlPhoneField(
+                      style: const TextStyle(color: Colors.black),
                       controller: phoneNumber,
-                      iconData: Icons.phone,
-                      hintText: "+91 96********",
-                      obscureText: false,
+                      decoration: const InputDecoration(
+                        fillColor: Colors.white,
+                        filled: true,
+                        labelText: 'Phone Number',
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.white),
+                        ),
+                      ),
                     ),
                     const SizedBox(
                       height: 40,

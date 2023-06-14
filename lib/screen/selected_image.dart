@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:videomaker/screen/edit_page.dart';
-
 import '../model/color.dart';
 
 class SelectedImagePage extends StatefulWidget {
@@ -14,43 +14,49 @@ class SelectedImagePage extends StatefulWidget {
 }
 
 class _SelectedImagePageState extends State<SelectedImagePage> {
-  Uint8List webImage = Uint8List(8);
+  File? _image;
+  Future<void> _cropImage() async {
+    if (_image == null) return;
 
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //
-  //     if (kIsWeb) return;
-  //       final image = await ImagePicker().pickImage(source: source);
-  //
-  //
-  //     final imageTemporary = File(image?.path);
-  //     setState(() {
-  //       this._image = imageTemporary;
-  //     });
-  //   } catch (e) {
-  //     print("faild to pick image$e");
-  //   }
-  // }
+    File? cropped = await ImageCropper().cropImage(
+      sourcePath: _image!.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      androidUiSettings: const AndroidUiSettings(
+        toolbarTitle: 'Crop Image',
+        toolbarColor: Colors.deepOrange,
+        toolbarWidgetColor: Colors.white,
+        initAspectRatio: CropAspectRatioPreset.original,
+        lockAspectRatio: false,
+      ),
+    );
 
-  Future<void> _pickImage() async {
-    if (!kIsWeb) {
-      final ImagePicker picker = ImagePicker();
-      XFile? image = await picker.pickImage(source: ImageSource.gallery);
-      if (image != null) {
-        var selected = File(image.path);
-        setState(() {});
-      } else if (kIsWeb) {
-        final ImagePicker picker = ImagePicker();
-        XFile? image = await picker.pickImage(source: ImageSource.gallery);
-        if (image != null) {
-          var f = await image.readAsBytes();
-          webImage = f;
-        }
-      } else {
-        print("no image has been picked");
+    if (cropped != null) {
+      setState(() {
+        _image = cropped;
+      });
+    }
+  }
+
+  Future getImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      final imageTemporary = File(image.path);
+      setState(() {
+        _image = imageTemporary;
+      });
+      await _cropImage();
+    } catch (e) {
+      if (kDebugMode) {
+        print("failed to pick image$e");
       }
-    } else {
-      print("somthing went wrong");
     }
   }
 
@@ -86,10 +92,17 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  child: Image.network(
-                    "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
-                    fit: BoxFit.cover,
-                  )),
+                  child: _image != null
+                      ? Image.file(
+                          _image!,
+                          width: 150,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.network(
+                          "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg",
+                          fit: BoxFit.cover,
+                        )),
               Padding(
                 padding: const EdgeInsets.only(top: 120.0),
                 child: Container(
@@ -153,13 +166,15 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
                                         width: 30,
                                       ),
                                       ElevatedButton(
-                                          onPressed: () => _pickImage,
+                                          onPressed: () =>
+                                              getImage(ImageSource.gallery),
                                           child: const Text("From Gallery")),
                                       const SizedBox(
                                         width: 90,
                                       ),
                                       ElevatedButton(
-                                          onPressed: () {},
+                                          onPressed: () =>
+                                              getImage(ImageSource.camera),
                                           child: const Text("From Camera"))
                                     ],
                                   )

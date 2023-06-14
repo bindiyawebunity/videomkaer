@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:videomaker/screen/edit_page.dart';
-import 'package:videomaker/screen/selected_image.dart';
-import 'package:videomaker/screen/use_template_page.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:videomaker/screen/welcome_screen.dart';
 import 'model/color.dart';
 
 Future<void> main() async {
@@ -32,7 +30,7 @@ class MyApp extends StatelessWidget {
           radioTheme: RadioThemeData(
               fillColor:
                   MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const SelectedImagePage(),
+      home: const WelcomeScreen(),
     );
   }
 }
