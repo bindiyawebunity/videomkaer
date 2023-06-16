@@ -20,82 +20,80 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 65),
-              const Image(
-                image: AssetImage(
-                  "assets/welcomePage.png",
-                ),
-                fit: BoxFit.cover,
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
+        child: Column(
+          children: [
+            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            const Image(
+              image: AssetImage(
+                "assets/welcomePage.png",
               ),
-              const SizedBox(height: 50),
-              Center(
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+            Center(
+              child: Text(
+                StringFile.welcomeText,
+                style: TextStyleFile.welcomeText,
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            Center(
+              child: Align(
+                alignment: Alignment.bottomCenter,
                 child: Text(
-                  StringFile.welcomeText,
-                  style: TextStyleFile.welcomeText,
+                  StringFile.welcomePageText,
+                  style: TextStyleFile.welcomePageText,
                 ),
               ),
-              const SizedBox(height: 40),
-              Center(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    StringFile.welcomePageText,
-                    style: TextStyleFile.welcomePageText,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              CommonElevatedButton(
-                width: 300,
-                height: 40,
-                text: StringFile.elevatedButton1Text,
-                backgroundColor: ColorFile.elevatedColor,
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const LoginPage(),
-                      ));
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CommonElevatedButton(
-                width: 300,
-                height: 40,
-                text: StringFile.elevatedButton2Text,
-                backgroundColor: ColorFile.elevatedColor,
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PrivacyPolicyPage(),
-                      ));
-                },
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CommonElevatedButton(
-                width: 300,
-                height: 40,
-                text: StringFile.elevatedButton3Text,
-                backgroundColor: ColorFile.elevatedColor,
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SignUpPage(),
-                      ));
-                },
-              ),
-            ],
-          ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.07),
+            CommonElevatedButton(
+              width: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.width * 0.10,
+              text: StringFile.elevatedButton1Text,
+              backgroundColor: ColorFile.elevatedColor,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ));
+              },
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            CommonElevatedButton(
+              width: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.width * 0.10,
+              text: StringFile.elevatedButton2Text,
+              backgroundColor: ColorFile.elevatedColor,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PrivacyPolicyPage(),
+                    ));
+              },
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            ),
+            CommonElevatedButton(
+              width: MediaQuery.of(context).size.height * 0.3,
+              height: MediaQuery.of(context).size.width * 0.10,
+              text: StringFile.elevatedButton3Text,
+              backgroundColor: ColorFile.elevatedColor,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUpPage(),
+                    ));
+              },
+            ),
+          ],
         ),
       ),
     );

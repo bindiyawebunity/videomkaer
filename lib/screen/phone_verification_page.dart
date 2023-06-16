@@ -28,28 +28,33 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 150,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.11,
                 ),
-                const Center(
+                Center(
                   child: SizedBox(
-                    height: 300,
-                    width: 300,
-                    child: Image(
-                        image: AssetImage(
-                      "assets/phoneVerificationPage.png",
-                    )),
+                    height: MediaQuery.of(context).size.height * 0.300,
+                    width: MediaQuery.of(context).size.width * 0.700,
+                    child: const Image(
+                      image: AssetImage(
+                        "assets/phoneVerificationPage.png",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
                   ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 Text(
                   StringFile.phoneVerification,
                   style: TextStyleFile.phoneVerificationPageTitle,
                 ),
-                const SizedBox(
-                  height: 13,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 Text(
                   StringFile.phoneVerificationText,
@@ -59,16 +64,19 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.05),
                       child: Text(
                         "PhoneNumber",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 13,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
                     ),
                     IntlPhoneField(
+                      initialCountryCode: "IN",
                       style: const TextStyle(color: Colors.black),
                       controller: phoneNumber,
                       decoration: const InputDecoration(
@@ -80,13 +88,13 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 40,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.06,
                     ),
                     Center(
                         child: CommonElevatedButton(
-                      width: 250,
-                      height: 40,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.05,
                       text: "Send Code",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {

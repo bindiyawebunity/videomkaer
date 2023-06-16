@@ -23,39 +23,44 @@ class _SentCodePageState extends State<SentCodePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(
-              height: 100,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.13,
             ),
-            const Center(
+            Center(
               child: SizedBox(
-                height: 400,
-                width: 400,
-                child: Image(
-                    image: AssetImage(
-                  "assets/sentOtpPage.png",
-                )),
+                height: MediaQuery.of(context).size.height * 0.300,
+                width: MediaQuery.of(context).size.width * 0.700,
+                child: const Image(
+                  image: AssetImage(
+                    "assets/sentOtpPage.png",
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.06,
             ),
             Text(
               StringFile.otoVerification,
               style: TextStyleFile.otpVerificationPageTitle,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               StringFile.otoVerificationText,
               style: TextStyleFile.otpVerificationPageText,
             ),
-            const SizedBox(
-              height: 25,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.06,
             ),
             Pinput(
               length: 6,
               showCursor: true,
               defaultPinTheme: PinTheme(
-                height: 60,
-                width: 60,
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.11,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Colors.white),
@@ -64,12 +69,12 @@ class _SentCodePageState extends State<SentCodePage> {
               ),
               onSubmitted: (value) {},
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.11,
             ),
             CommonElevatedButton(
-              width: 250,
-              height: 40,
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.05,
               text: "Verify",
               onPressed: () {
                 Navigator.push(

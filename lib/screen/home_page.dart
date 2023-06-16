@@ -82,8 +82,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: ColorFile.backGroundColor,
         child: ListView(
           children: [
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.06,
             ),
             Column(
               children: [
@@ -128,8 +128,8 @@ class _HomePageState extends State<HomePage> {
                   height: 1,
                   color: Colors.grey,
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 Row(
                   children: [
@@ -147,8 +147,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Row(
               children: [
@@ -176,8 +176,8 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Row(
               children: [
@@ -213,8 +213,9 @@ class _HomePageState extends State<HomePage> {
                                         Navigator.pop(context);
                                       },
                                       child: const Text("cancel")),
-                                  const SizedBox(
-                                    width: 80,
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.010,
                                   ),
                                   ElevatedButton(
                                       onPressed: () {
@@ -245,7 +246,10 @@ class _HomePageState extends State<HomePage> {
       ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
-        padding: const EdgeInsets.only(left: 15.0, right: 15, top: 35),
+        padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * 0.05,
+            right: MediaQuery.of(context).size.width * 0.01,
+            top: MediaQuery.of(context).size.height * 0.02),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -262,12 +266,12 @@ class _HomePageState extends State<HomePage> {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20))),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               SizedBox(
-                height: 200,
-                width: 350,
+                height: MediaQuery.of(context).size.height * 0.220,
+                width: MediaQuery.of(context).size.width * 0.900,
                 child: GridView.builder(
                   itemCount: mainName.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -298,10 +302,12 @@ class _HomePageState extends State<HomePage> {
                                 )),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 140.0),
+                            padding: EdgeInsets.only(
+                                top:
+                                    MediaQuery.of(context).size.height * 0.170),
                             child: Container(
-                              height: 40,
-                              width: 200,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                              width: MediaQuery.of(context).size.width * 0.450,
                               decoration: BoxDecoration(
                                   color:
                                       const Color(0xFF040404).withOpacity(0.5),
@@ -310,8 +316,11 @@ class _HomePageState extends State<HomePage> {
                                     bottomLeft: Radius.circular(15),
                                   )),
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 25.0, top: 8),
+                                padding: EdgeInsets.only(
+                                    left: MediaQuery.of(context).size.width *
+                                        0.07,
+                                    top: MediaQuery.of(context).size.height *
+                                        0.01),
                                 child: Text(
                                   mainName[index],
                                   style: TextStyle(color: ColorFile.textColor),
@@ -327,8 +336,8 @@ class _HomePageState extends State<HomePage> {
               ),
               Row(
                 children: [
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.01,
                   ),
                   Text(
                     "Relax",
@@ -338,7 +347,8 @@ class _HomePageState extends State<HomePage> {
                         color: ColorFile.textColor),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 215.0),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.580),
                     child: TextButton(
                         onPressed: () {},
                         child: const Text(
@@ -350,8 +360,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: 220,
-                width: 350,
+                height: MediaQuery.of(context).size.height * 0.27,
+                width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: name.length,
@@ -367,8 +377,8 @@ class _HomePageState extends State<HomePage> {
                       child: Stack(
                         children: [
                           Container(
-                            height: 240,
-                            width: 170,
+                            height: MediaQuery.of(context).size.height * 0.30,
+                            width: MediaQuery.of(context).size.width * 0.450,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                             ),
@@ -379,10 +389,11 @@ class _HomePageState extends State<HomePage> {
                                 )),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 180.0),
+                            padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.height * 0.22),
                             child: Container(
-                              height: 40,
-                              width: 200,
+                              height: MediaQuery.of(context).size.height * 0.10,
+                              width: MediaQuery.of(context).size.height * 0.240,
                               decoration: BoxDecoration(
                                   color:
                                       const Color(0xFF040404).withOpacity(0.5),
@@ -391,8 +402,11 @@ class _HomePageState extends State<HomePage> {
                                     bottomLeft: Radius.circular(15),
                                   )),
                               child: Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 60.0, top: 15),
+                                padding: EdgeInsets.only(
+                                    left: MediaQuery.of(context).size.width *
+                                        0.17,
+                                    top: MediaQuery.of(context).size.height *
+                                        0.02),
                                 child: Text(
                                   name[index],
                                   style: TextStyle(color: ColorFile.textColor),
@@ -406,13 +420,13 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               Row(
                 children: [
-                  const SizedBox(
-                    width: 10,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.01,
                   ),
                   Text(
                     "Sports",
@@ -422,7 +436,8 @@ class _HomePageState extends State<HomePage> {
                         color: ColorFile.textColor),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 210.0),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.580),
                     child: TextButton(
                         onPressed: () {},
                         child: const Text(
@@ -434,8 +449,8 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               SizedBox(
-                height: 200,
-                width: 350,
+                height: MediaQuery.of(context).size.height * 0.27,
+                width: MediaQuery.of(context).size.width,
                 child: ListView.builder(
                   itemCount: name2.length,
                   scrollDirection: Axis.horizontal,
@@ -443,8 +458,8 @@ class _HomePageState extends State<HomePage> {
                     return Stack(
                       children: [
                         Container(
-                          height: 230,
-                          width: 165,
+                          height: MediaQuery.of(context).size.height * 0.30,
+                          width: MediaQuery.of(context).size.width * 0.450,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                           ),
@@ -455,10 +470,11 @@ class _HomePageState extends State<HomePage> {
                               )),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top: 140.0),
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.22),
                           child: Container(
-                            height: 40,
-                            width: 200,
+                            height: MediaQuery.of(context).size.height * 0.10,
+                            width: MediaQuery.of(context).size.height * 0.240,
                             decoration: BoxDecoration(
                                 color: const Color(0xFF040404).withOpacity(0.5),
                                 borderRadius: const BorderRadius.only(
@@ -466,8 +482,11 @@ class _HomePageState extends State<HomePage> {
                                   bottomLeft: Radius.circular(15),
                                 )),
                             child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 25.0, top: 8),
+                              padding: EdgeInsets.only(
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.17,
+                                  top: MediaQuery.of(context).size.height *
+                                      0.02),
                               child: Text(
                                 name2[index],
                                 style: TextStyle(color: ColorFile.textColor),

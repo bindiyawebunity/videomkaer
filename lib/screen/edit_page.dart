@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'package:videomaker/screen/save_video_page.dart';
 import '../model/color.dart';
 
@@ -12,12 +16,58 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
+  File? _image;
+
+  Future<void> _cropImage() async {
+    if (_image == null) return;
+
+    File? cropped = (await ImageCropper().cropImage(
+      sourcePath: _image!.path,
+      aspectRatioPresets: [
+        CropAspectRatioPreset.square,
+        CropAspectRatioPreset.ratio3x2,
+        CropAspectRatioPreset.original,
+        CropAspectRatioPreset.ratio4x3,
+        CropAspectRatioPreset.ratio16x9
+      ],
+      androidUiSettings: const AndroidUiSettings(
+        toolbarTitle: 'Crop Image',
+        toolbarColor: Colors.deepOrange,
+        toolbarWidgetColor: Colors.white,
+        initAspectRatio: CropAspectRatioPreset.original,
+        lockAspectRatio: false,
+      ),
+    ));
+
+    if (cropped != null) {
+      setState(() {
+        _image = cropped;
+      });
+    }
+  }
+
+  Future getImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+
+      final imageTemporary = File(image.path);
+      setState(() {
+        _image = imageTemporary;
+      });
+      await _cropImage();
+    } catch (e) {
+      if (kDebugMode) {
+        print("failed to pick image$e");
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       appBar: AppBar(
-
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -56,165 +106,214 @@ class _EditPageState extends State<EditPage> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 60.0, right: 60, top: 20),
+            Padding(
+              padding: const EdgeInsets.only(left: 60.0, right: 60, top: 20),
               child: SizedBox(
-                height: 500,
-                width: double.infinity,
-                child: Image(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      "assets/homePage.png",
-                    )),
-              ),
+                  height: MediaQuery.of(context).size.height * 0.500,
+                  width: MediaQuery.of(context).size.width,
+                  child: _image != null
+                      ? Image.file(
+                          _image!,
+                          height: MediaQuery.of(context).size.height * 0.470,
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          "assets/homePage.png",
+                          fit: BoxFit.cover,
+                          scale: 3,
+                        )),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30.0, top: 120),
-              child: Row(
-                children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorFile.editPageContainerColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      Icons.crop,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorFile.editPageContainerColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      Icons.settings_overscan,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorFile.editPageContainerColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      FontAwesomeIcons.filter,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorFile.editPageContainerColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      CupertinoIcons.arrow_2_squarepath,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: ColorFile.editPageContainerColor,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      FontAwesomeIcons.textHeight,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(
-                        child: Icon(
-                      FontAwesomeIcons.phoenixFramework,
-                      color: ColorFile.iconColor,
-                    )),
-                  ),
-                  const SizedBox(width: 30),
-                ],
-              ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.20,
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 35.0, top: 10),
-              child: Row(
-                children: [
-                  Text(
-                    "Crop",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                  const SizedBox(
-                    width: 40,
-                  ),
-                  Text(
-                    "Canvas",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                  const SizedBox(
-                    width: 35,
-                  ),
-                  Text(
-                    "Filter",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                  const SizedBox(
-                    width: 40,
-                  ),
-                  Text(
-                    "Effect",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                  const SizedBox(
-                    width: 40,
-                  ),
-                  Text(
-                    "Text",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                  const SizedBox(
-                    width: 45,
-                  ),
-                  Text(
-                    "Frame",
-                    style: TextStyle(color: ColorFile.textColor, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.10,
+                      decoration: BoxDecoration(
+                        color: ColorFile.editPageContainerColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                  title: const Text(
+                                    'CHOICE MEDIA',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                                  ),
+                                  content: const SingleChildScrollView(
+                                    child: ListBody(
+                                      children: <Widget>[
+                                        Text(""),
+                                      ],
+                                    ),
+                                  ),
+                                  actions: <Widget>[
+                                    Row(
+                                      children: [
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.03,
+                                        ),
+                                        ElevatedButton(
+                                            onPressed: () =>
+                                                getImage(ImageSource.gallery),
+                                            child: const Text("From Gallery")),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.03,
+                                        ),
+                                        ElevatedButton(
+                                            onPressed: () =>
+                                                getImage(ImageSource.camera),
+                                            child: const Text("From Camera"))
+                                      ],
+                                    )
+                                  ]);
+                            },
+                          );
+                        },
+                        icon: Icon(
+                          Icons.crop,
+                          color: ColorFile.iconColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Crop",
+                      style:
+                          TextStyle(color: ColorFile.textColor, fontSize: 12),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.10,
+                      decoration: BoxDecoration(
+                        color: ColorFile.editPageContainerColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.filter,
+                          color: ColorFile.iconColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Filter",
+                      style:
+                          TextStyle(color: ColorFile.textColor, fontSize: 12),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.10,
+                      decoration: BoxDecoration(
+                        color: ColorFile.editPageContainerColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          CupertinoIcons.arrow_2_squarepath,
+                          color: ColorFile.iconColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Effect",
+                      style:
+                          TextStyle(color: ColorFile.textColor, fontSize: 12),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.10,
+                      decoration: BoxDecoration(
+                        color: ColorFile.editPageContainerColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          FontAwesomeIcons.textHeight,
+                          color: ColorFile.iconColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Text",
+                      style:
+                          TextStyle(color: ColorFile.textColor, fontSize: 12),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                      width: MediaQuery.of(context).size.width * 0.10,
+                      decoration: BoxDecoration(
+                        color: ColorFile.editPageContainerColor,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          FontAwesomeIcons.phoenixFramework,
+                          color: ColorFile.iconColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.010,
+                    ),
+                    Text(
+                      "Frame",
+                      style:
+                          TextStyle(color: ColorFile.textColor, fontSize: 12),
+                    ),
+                  ],
+                ),
+              ],
+            )
           ],
         ),
       ),

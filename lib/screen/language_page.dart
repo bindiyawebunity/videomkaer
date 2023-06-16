@@ -31,7 +31,7 @@ class _LanguagePageState extends State<LanguagePage> {
       ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,12 +40,12 @@ class _LanguagePageState extends State<LanguagePage> {
                 " Suggested Language ",
                 style: TextStyle(color: ColorFile.textColor, fontSize: 20),
               ),
-              const SizedBox(
-                height: 30,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Container(
-                  height: 130,
-                  width: 450,
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color(0xFFFDFDFD).withOpacity(0.10)),
@@ -82,19 +82,19 @@ class _LanguagePageState extends State<LanguagePage> {
                               })),
                     ],
                   )),
-              const SizedBox(
-                height: 30,
+               SizedBox(
+                   height: MediaQuery.of(context).size.height * 0.03,
               ),
               Text(
                 " Language ",
                 style: TextStyle(color: ColorFile.textColor, fontSize: 20),
               ),
-              const SizedBox(
-                height: 30,
+               SizedBox(
+                height:  MediaQuery.of(context).size.height * 0.03,
               ),
               Container(
-                  height: 530,
-                  width: 450,
+                  height: MediaQuery.of(context).size.height * 0.65,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: const Color(0xFFFDFDFD).withOpacity(0.10)),

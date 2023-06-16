@@ -17,7 +17,6 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -36,15 +35,15 @@ class _SettingPageState extends State<SettingPage> {
       ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.03),
         child: Column(
           children: [
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Center(
               child: Container(
-                height: 300,
+                height: MediaQuery.of(context).size.height * 0.36,
                 width: 350,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
@@ -56,9 +55,12 @@ class _SettingPageState extends State<SettingPage> {
                           Icons.language,
                           color: ColorFile.iconColor,
                         ),
-                        title: Text(
-                          "Language",
-                          style: TextStyle(color: ColorFile.textColor),
+                        title: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Language",
+                            style: TextStyle(color: ColorFile.textColor),
+                          ),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -78,9 +80,12 @@ class _SettingPageState extends State<SettingPage> {
                           Icons.privacy_tip,
                           color: ColorFile.iconColor,
                         ),
-                        title: Text(
-                          "Privacy Policy",
-                          style: TextStyle(color: ColorFile.textColor),
+                        title: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Privacy Policy",
+                            style: TextStyle(color: ColorFile.textColor),
+                          ),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -101,9 +106,12 @@ class _SettingPageState extends State<SettingPage> {
                           Icons.save_as_sharp,
                           color: ColorFile.iconColor,
                         ),
-                        title: Text(
-                          "Terms & Conditions",
-                          style: TextStyle(color: ColorFile.textColor),
+                        title: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Terms & Conditions",
+                            style: TextStyle(color: ColorFile.textColor),
+                          ),
                         ),
                         trailing: IconButton(
                           onPressed: () {
@@ -124,9 +132,12 @@ class _SettingPageState extends State<SettingPage> {
                           Icons.mail,
                           color: ColorFile.iconColor,
                         ),
-                        title: Text(
-                          "Contact Us",
-                          style: TextStyle(color: ColorFile.textColor),
+                        title: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Contact Us",
+                            style: TextStyle(color: ColorFile.textColor),
+                          ),
                         ),
                         trailing: IconButton(
                           onPressed: () {},
@@ -140,9 +151,12 @@ class _SettingPageState extends State<SettingPage> {
                           FontAwesomeIcons.instagram,
                           color: ColorFile.iconColor,
                         ),
-                        title: Text(
-                          "Instagram",
-                          style: TextStyle(color: ColorFile.textColor),
+                        title: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Instagram",
+                            style: TextStyle(color: ColorFile.textColor),
+                          ),
                         ),
                         trailing: IconButton(
                           onPressed: () {},

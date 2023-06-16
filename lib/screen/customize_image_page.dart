@@ -62,8 +62,8 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
                 Icons.check,
                 color: ColorFile.iconColor,
               )),
-          const SizedBox(
-            width: 30,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.03,
           ),
         ],
       ),
@@ -73,8 +73,8 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
             crossAxisCount: 3, mainAxisSpacing: 10.0, crossAxisSpacing: 10.0),
         itemBuilder: (context, index) {
           return SizedBox(
-              height: 50,
-              width: 50,
+              height: MediaQuery.of(context).size.height * 0.04,
+              width: MediaQuery.of(context).size.width * 0.50,
               child: Image(
                 image: AssetImage(image[index]),
                 fit: BoxFit.cover,

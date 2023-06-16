@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/common/Common_Text_Field.dart';
 import 'package:videomaker/common/common_elevated_button.dart';
 import 'package:videomaker/model/String.dart';
@@ -35,24 +34,24 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 60,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.07,
                 ),
-                const Center(
+                Center(
                     child: SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: Image(
+                        height: MediaQuery.of(context).size.height * 0.22,
+                        width: MediaQuery.of(context).size.width * 0.50,
+                        child: const Image(
                           image: AssetImage(
                             "assets/loginPage.png",
                           ),
                           fit: BoxFit.cover,
                         ))),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 Text(
                   StringFile.loginTitle,
@@ -62,21 +61,25 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 30.0, top: 30),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.06,
+                          top: MediaQuery.of(context).size.height * 0.04),
                       child: Text(
                         StringFile.loginPage,
                         style: TextStyleFile.loginPageText,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.04),
                       child: Text(
                         "Email",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     CommonTextField(
                       validator: (value) {
@@ -91,14 +94,16 @@ class _LoginPageState extends State<LoginPage> {
                       obscureText: false,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.05),
                       child: Text(
                         "Password",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     CommonTextField(
                       iconDataSuffix: passwordVisible
@@ -124,13 +129,14 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: "******",
                       obscureText: passwordVisible,
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 130.0),
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.height * 0.17),
                           child: Text(
                             StringFile.loginPageLast,
                             style: TextStyle(
@@ -153,13 +159,13 @@ class _LoginPageState extends State<LoginPage> {
                             ))
                       ],
                     ),
-                    const SizedBox(
-                      height: 20,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
                     ),
                     Center(
                         child: CommonElevatedButton(
-                            width: 250,
-                            height: 45,
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            height: MediaQuery.of(context).size.height * 0.05,
                             text: "Login",
                             backgroundColor: ColorFile.elevatedColor,
                             onPressed: () async {

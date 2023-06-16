@@ -14,7 +14,6 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -32,7 +31,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
       ),
       backgroundColor: ColorFile.backGroundColor,
       body: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.06),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -40,24 +39,24 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               "Last Revised: December 25, 2021",
               style: TextStyle(color: ColorFile.textColor),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             Text(
               "This Document “Privacy Policy” (Hereinafter \n Referred to as “Policy”) is the terms and con-\n editions for Collection and use of the Personal \nInformation of the User (Hereinafter referred \n"
               "to also as “you”)by Wot Digital Hereinafter A.S \n((Hereinafter Referred to as “Wot”during \nDownload, Installation and Use of the Mobile\n Application,",
               style: TextStyle(color: ColorFile.textColor),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "1. Types of Data We Collect.",
               style: TextStyle(
                   color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "A privacy policy is a legal document where you disclose "
@@ -67,16 +66,16 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               " collect, use and manage the collected.",
               style: TextStyle(color: ColorFile.textColor),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "2. Use of Your Personal Data",
               style: TextStyle(
                   color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "The Privacy Policy Generator (privacy policy generator.info) "
@@ -85,16 +84,16 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               "the privacy policy for your business.",
               style: TextStyle(color: ColorFile.textColor),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "Disclosure of Your Personal Data",
               style: TextStyle(
                   color: ColorFile.textColor, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
               "The most important thing to remember is that a privacy"

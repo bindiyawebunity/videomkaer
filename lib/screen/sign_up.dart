@@ -35,32 +35,36 @@ class _SignUpPageState extends State<SignUpPage> {
         key: _formKey,
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
             child: Column(
               children: [
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 const Image(image: AssetImage("assets/signUpPage.png")),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 100.0, top: 20),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.28,
+                          top: MediaQuery.of(context).size.height * 0.03),
                       child: Text(
                         StringFile.signUpPageText,
                         style: TextStyleFile.signUpPageText,
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.03),
                       child: Text(
                         "UserName",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     CommonTextField(
                       validator: (value) {
@@ -75,14 +79,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: false,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.03),
                       child: Text(
                         "Email",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     CommonTextField(
                       validator: (value) {
@@ -97,14 +103,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       obscureText: false,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 40),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02,
+                          top: MediaQuery.of(context).size.height * 0.03),
                       child: Text(
                         "password",
                         style: TextStyle(color: ColorFile.textColor),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
                     ),
                     CommonTextField(
                       iconDataSuffix: passwordVisible
@@ -132,11 +140,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     Row(
                       children: [
-                        const SizedBox(
-                          height: 15,
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 175.0),
+                          padding: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.47),
                           child: Text(
                             StringFile.signUpPageText,
                             style: TextStyle(
@@ -159,13 +168,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             ))
                       ],
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.04,
                     ),
                     Center(
                         child: CommonElevatedButton(
-                      width: 250,
-                      height: 45,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      height: MediaQuery.of(context).size.height * 0.05,
                       text: "Sign Up",
                       backgroundColor: ColorFile.elevatedColor,
                       onPressed: () async {

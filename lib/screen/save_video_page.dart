@@ -15,7 +15,6 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
     return Scaffold(
       backgroundColor: ColorFile.backGroundColor,
       appBar: AppBar(
-
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -37,27 +36,29 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
                 Icons.check,
                 color: ColorFile.iconColor,
               )),
-          const SizedBox(
-            width: 20,
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.02,
           ),
         ],
       ),
       body: Column(
         children: [
-          const SizedBox(
-              height: 500,
+          SizedBox(
+              height: MediaQuery.of(context).size.height * 0.550,
               width: double.infinity,
-              child: Image(
+              child: const Image(
                 image: AssetImage("assets/savePage.png"),
                 fit: BoxFit.cover,
               )),
           Padding(
-            padding: const EdgeInsets.only(left: 90.0, top: 30),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.10,
+                top: MediaQuery.of(context).size.height * 0.03),
             child: Row(
               children: [
                 Container(
-                  height: 30,
-                  width: 30,
+                  height: MediaQuery.of(context).size.height * 0.03,
+                  width: MediaQuery.of(context).size.width * 0.06,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(30)),
                   child: const Image(
@@ -76,34 +77,38 @@ class _SaveVideoPageState extends State<SaveVideoPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 60.0, top: 200),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.08,
+                top: MediaQuery.of(context).size.height * 0.12),
             child: Row(
               children: [
                 Container(
-                  height: 38,
-                  width: 136,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  child: Center(
+                  child: TextButton(
+                    onPressed: () {},
                     child: Text(
                       "Share reel",
                       style: TextStyle(color: ColorFile.textColor),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 50,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.06,
                 ),
                 Container(
-                  height: 38,
-                  width: 136,
+                  width: MediaQuery.of(context).size.width * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  child: Center(
+                  child: TextButton(
+                    onPressed: () {},
                     child: Text(
                       "Delete reel",
                       style: TextStyle(color: ColorFile.textColor),

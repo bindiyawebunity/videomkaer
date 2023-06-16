@@ -31,10 +31,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 120.0, top: 10),
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.17,
+                    top: MediaQuery.of(context).size.height * 0.01),
                 child: Container(
-                    height: 450,
-                    width: 250,
+                    height: MediaQuery.of(context).size.height * 0.450,
+                    width: MediaQuery.of(context).size.width * 0.620,
                     decoration: BoxDecoration(
                         color: ColorFile.iconColor,
                         borderRadius: BorderRadius.circular(10),
@@ -44,8 +46,8 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                       fit: BoxFit.fill,
                     )),
               ),
-              const SizedBox(
-                width: 30,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.02,
               ),
               Column(
                 children: [
@@ -82,7 +84,9 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 170.0, top: 20),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.30,
+                top: MediaQuery.of(context).size.height * 0.04),
             child: Text(
               "Use as Template",
               style: TextStyle(
@@ -92,19 +96,23 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 130.0, top: 20),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.20,
+                top: MediaQuery.of(context).size.height * 0.02),
             child: Text(
               "Replace all the clips with your own",
-              style: TextStyle(color: ColorFile.textColor),
+              style: TextStyle(color: ColorFile.textColor, fontSize: 15),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 70, top: 70),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.10,
+                top: MediaQuery.of(context).size.height * 0.08),
             child: Row(
               children: [
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -115,12 +123,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
                 ),
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -131,12 +139,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
                 ),
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -147,12 +155,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
                 ),
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -163,12 +171,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
                 ),
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -179,12 +187,12 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
                     style: TextStyle(color: ColorFile.textColor),
                   )),
                 ),
-                const SizedBox(
-                  width: 20,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.02,
                 ),
                 Container(
-                  height: 58,
-                  width: 40,
+                  height: MediaQuery.of(context).size.height * 0.07,
+                  width: MediaQuery.of(context).size.width * 0.11,
                   decoration: BoxDecoration(
                     color: ColorFile.editPageContainerColor,
                     borderRadius: BorderRadius.circular(5),
@@ -199,7 +207,9 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 140, left: 70),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.10,
+                left: MediaQuery.of(context).size.width * 0.10),
             child: Container(
               height: 40,
               width: 200,
