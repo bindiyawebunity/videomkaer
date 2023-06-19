@@ -1,6 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:multiple_images_picker/multiple_images_picker.dart';
+import 'package:videomaker/screen/edit_page.dart';
 import 'package:videomaker/screen/selected_image.dart';
 import '../model/color.dart';
+import 'dart:io';
 
 class CustomizeImagePage extends StatefulWidget {
   const CustomizeImagePage({Key? key}) : super(key: key);
@@ -10,23 +15,33 @@ class CustomizeImagePage extends StatefulWidget {
 }
 
 class _CustomizeImagePageState extends State<CustomizeImagePage> {
-  List image = [
-    "assets/Rectangle 2.png",
-    "assets/Rectangle 2 (1).png",
-    "assets/Rectangle 2 (2).png",
-    "assets/Rectangle 2 (3).png",
-    "assets/Rectangle 2 (4).png",
-    "assets/Rectangle 2 (5).png",
-    "assets/Rectangle 2 (6).png",
-    "assets/Rectangle 2 (7).png",
-    "assets/Rectangle 2 (8).png",
-    "assets/Rectangle 2 (10).png",
-    "assets/Rectangle 2 (11).png",
-    "assets/Rectangle 2 (12).png",
-    "assets/Rectangle 2 (13).png",
-    "assets/Rectangle 2 (14).png",
-    "assets/Rectangle 2 (15).png",
-  ];
+  captureImage(ImageSource imageSource) async {
+    File pickedFile =
+        (await ImagePicker().pickImage(source: ImageSource.gallery)) as File;
+    if (pickedFile.path.isNotEmpty) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => EditPage(file: pickedFile),
+          ));
+    }
+  }
+
+  List<Asset> images = <Asset>[];
+  Future pickImage() async {
+    List<Asset> resultList = <Asset>[];
+    try {
+      resultList = await MultipleImagesPicker.pickImages(
+          maxImages: 300, selectedAssets: images, enableCamera: true);
+    } catch (e) {
+      if (kDebugMode) {
+        print("failed to pick image$e");
+      }
+    }
+    setState(() {
+      images = resultList;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,18 +82,43 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
           ),
         ],
       ),
-      body: GridView.builder(
-        itemCount: image.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, mainAxisSpacing: 10.0, crossAxisSpacing: 10.0),
-        itemBuilder: (context, index) {
-          return SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
-              width: MediaQuery.of(context).size.width * 0.50,
-              child: Image(
-                image: AssetImage(image[index]),
-                fit: BoxFit.cover,
-              ));
+      body: Column(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: GridView.count(
+                  crossAxisCount: 3,
+                  children: List.generate(images.length, (index) {
+                    Asset asset = images[index];
+                    return AssetThumb(asset: asset, width: 300, height: 300);
+                  })),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.80,
+            ),
+            child: IconButton(
+                onPressed: () {
+                  pickImage();
+                },
+                icon: Icon(
+                  Icons.image,
+                  size: 25,
+                  color: ColorFile.iconColor,
+                )),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: const Color(0xFFE68A96),
+        child: Icon(
+          Icons.add,
+          color: ColorFile.iconColor,
+        ),
+        onPressed: () {
+          captureImage(ImageSource.gallery);
         },
       ),
     );

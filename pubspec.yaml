@@ -51,12 +51,9 @@ dependencies:
   intl_phone_field: any
   path_provider: ^2.0.15
   flutter_image_filters: any
-
-
-
-
-
-
+  flutter_xlider: ^3.5.0
+  multiple_images_picker: ^1.0.1
+  gallery_saver: ^2.3.2
 
 dev_dependencies:
   flutter_test:

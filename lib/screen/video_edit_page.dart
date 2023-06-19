@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:videomaker/screen/save_video_page.dart';
@@ -39,7 +38,7 @@ class _VideoEditPageState extends State<VideoEditPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SaveVideoPage(),
+                      builder: (context) =>  const SaveVideoPage(),
                     ));
               },
               icon: Icon(

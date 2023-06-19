@@ -1,9 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:videomaker/screen/home_page.dart';
 import '../model/color.dart';
 
 class SaveVideoPage extends StatefulWidget {
-  const SaveVideoPage({Key? key}) : super(key: key);
+  const SaveVideoPage({Key? key, }) : super(key: key);
 
   @override
   State<SaveVideoPage> createState() => _SaveVideoPageState();

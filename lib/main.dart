@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:videomaker/screen/edit_page.dart';
+import 'package:videomaker/screen/home_page.dart';
 import 'model/color.dart';
 
 Future<void> main() async {
@@ -22,15 +23,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData(brightness: Brightness.dark),
-      theme: ThemeData(
-          appBarTheme: AppBarTheme(color: ColorFile.backGroundColor),
-          primarySwatch: Colors.blue,
-          radioTheme: RadioThemeData(
-              fillColor:
-                  MaterialStateColor.resolveWith((states) => Colors.red))),
-      home: const EditPage(),
-    );
+        debugShowCheckedModeBanner: false,
+        darkTheme: ThemeData(brightness: Brightness.dark),
+        theme: ThemeData(
+            appBarTheme: AppBarTheme(color: ColorFile.backGroundColor),
+            primarySwatch: Colors.blue,
+            radioTheme: RadioThemeData(
+                fillColor:
+                    MaterialStateColor.resolveWith((states) => Colors.red))),
+        home: const HomePage());
   }
 }
