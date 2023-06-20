@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:videomaker/screen/edit_page.dart';
 import 'package:videomaker/screen/home_page.dart';
 import 'model/color.dart';
 

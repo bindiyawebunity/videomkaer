@@ -48,23 +48,6 @@ class _SelectedImagePageState extends State<SelectedImagePage> {
                   scale: 3,
                 ),
               )),
-          Padding(
-            padding: const EdgeInsets.only(top: 350, left: 70),
-            child: Container(
-              height: 40,
-              width: 200,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(40)),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF716E6E)),
-                  onPressed: () {},
-                  child: Text(
-                    "+ Add Media",
-                    style: TextStyle(color: ColorFile.textColor),
-                  )),
-            ),
-          ),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:videomaker/screen/customize_image_page.dart';
+import 'package:videomaker/screen/edit_page.dart';
 import 'package:videomaker/screen/login_page.dart';
 import 'package:videomaker/screen/setting_page.dart';
 import 'package:videomaker/screen/video_edit_page.dart';
@@ -371,8 +372,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const CustomizeImagePage(),
+                              builder: (context) => CustomizeImagePage()
                             ));
                       },
                       child: Stack(

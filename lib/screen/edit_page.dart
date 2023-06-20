@@ -1,19 +1,15 @@
-import 'package:flutter/foundation.dart';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
-import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:videomaker/screen/save_video_page.dart';
 import '../model/color.dart';
-import 'dart:ui';
 
 class EditPage extends StatefulWidget {
-  final File file;
-  const EditPage({
-    Key? key,
-    required this.file,
-  }) : super(key: key);
+  final XFile image;
+  const EditPage({Key? key, required this.image}) : super(key: key);
 
   @override
   State<EditPage> createState() => _EditPageState();
@@ -35,13 +31,76 @@ class _EditPageState extends State<EditPage> {
 
   List<ColorFilter> filterList = [
     const ColorFilter.matrix(
-      [0.95, 0, 0, 0, 0, 0, 0.94, 0, 0, 0, 0.94, 0, 0, 1, 0],
+      [
+        0.95,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.94,
+        0,
+        0,
+        0,
+        0.94,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
     const ColorFilter.matrix(
-      [0.78, 0, 0, 0, 0, 0, 0.78, 0, 0, 0, 0, 0.78, 0, 0, 0, 0, 1, 0],
+      [
+        0.78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
     const ColorFilter.matrix(
-      [0.98, 0, 0, 0, 0, 0, 0.78, 0, 0, 0, 0.78, 0, 0, 1, 0],
+      [
+        0.98,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.78,
+        0,
+        0,
+        0,
+        0.78,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
     const ColorFilter.matrix(
       [
@@ -60,135 +119,556 @@ class _EditPageState extends State<EditPage> {
         0.25,
         0,
         0,
+        0,
+        0,
         1,
-        0
+        0,
+        0,
       ],
     ),
     const ColorFilter.matrix(
-      [0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 1, 0],
+      [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
     const ColorFilter.matrix(
-      [1.5, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 1, 0],
+      [
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
     const ColorFilter.matrix(
-      [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1.2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.4,
+        0.8,
+        0.4,
+        0,
+        0,
+        0.4,
+        0.8,
+        0.4,
+        0,
+        0,
+        0.4,
+        0.8,
+        0.4,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.3,
+        0.6,
+        0.3,
+        0,
+        0,
+        0.3,
+        0.6,
+        0.3,
+        0,
+        0,
+        0.3,
+        0.6,
+        0.3,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.2,
+        0.4,
+        0.2,
+        0,
+        0,
+        0.2,
+        0.4,
+        0.2,
+        0,
+        0,
+        0.2,
+        0.4,
+        0.2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.1,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        0.2,
+        0.1,
+        0,
+        0,
+        0.1,
+        0.2,
+        0.1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.75,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.75,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.75,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1.5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
+    ),
+    const ColorFilter.matrix(
+      [
+        0.8,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+      ],
     ),
   ];
-
-  File? _image;
-
-  double contrast = 1.0;
-  double shadow = 0.0;
-  double brightness = 0.0;
-
-  Future<void> _cropImage() async {
-    if (_image == null) return;
-
-    File? cropped = (await ImageCropper().cropImage(
-      sourcePath: _image!.path,
-      aspectRatioPresets: [
-        CropAspectRatioPreset.square,
-        CropAspectRatioPreset.ratio3x2,
-        CropAspectRatioPreset.original,
-        CropAspectRatioPreset.ratio4x3,
-        CropAspectRatioPreset.ratio16x9
-      ],
-      androidUiSettings: const AndroidUiSettings(
-        toolbarTitle: 'Crop Image',
-        toolbarColor: Colors.deepOrange,
-        toolbarWidgetColor: Colors.white,
-        initAspectRatio: CropAspectRatioPreset.original,
-        lockAspectRatio: false,
-      ),
-    ));
-
-    if (cropped != null) {
-      setState(() {
-        _image = cropped;
-      });
-    }
-  }
-
-  Future getImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-
-      final imageTemporary = File(image.path);
-      setState(() {
-        _image = imageTemporary;
-      });
-      await _cropImage();
-    } catch (e) {
-      if (kDebugMode) {
-        print("failed to pick image$e");
-      }
-    }
-  }
 
   int a = 0, selectedOption = 0;
   dynamic selectedFilter;
   dynamic bkImage;
   dynamic assetImage1;
   dynamic width;
-  File file = File(
-      "https://github.com/bindiyawebunity/videomkaer/blob/663eaf927f3d718041f41ca7fb4de45488bf9fef/assets/homePage.png");
+  File file = File("assets/homePage2.png");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorFile.backGroundColor,
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.close,
-              color: ColorFile.iconColor,
-            )),
-        title: Center(
-            child: Text(
-          "Edit",
-          style: TextStyle(
-              color: ColorFile.textColor,
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
-        )),
-        actions: [
-          IconButton(
-              onPressed: () async {
-                GallerySaver.saveImage(widget.file.path).then((value) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("photo saved")));
-                });
-
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SaveVideoPage(),
-                    ));
+        backgroundColor: ColorFile.backGroundColor,
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
               },
               icon: Icon(
-                Icons.check,
+                Icons.close,
                 color: ColorFile.iconColor,
               )),
-          const SizedBox(
-            width: 20,
-          )
-        ],
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
-        child: Column(
+          title: Center(
+              child: Text(
+            "Edit",
+            style: TextStyle(
+                color: ColorFile.textColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold),
+          )),
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  GallerySaver.saveImage(widget.image.path).then((value) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("photo saved")));
+                  });
+
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SaveVideoPage(),
+                      ));
+                },
+                icon: Icon(
+                  Icons.check,
+                  color: ColorFile.iconColor,
+                )),
+            const SizedBox(
+              width: 20,
+            )
+          ],
+        ),
+        body: Column(
           children: [
             Container(
-              height: 300,
+              height: 200,
               width: MediaQuery.of(context).size.width,
               decoration: assetImage1 == null
                   ? BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.fill, image: FileImage(widget.file)))
+                          fit: BoxFit.fill,
+                          image: FileImage(File(widget.image.path))))
                   : BoxDecoration(
                       image: DecorationImage(image: AssetImage(assetImage1))),
               child: ClipRRect(
@@ -199,15 +679,18 @@ class _EditPageState extends State<EditPage> {
                         sigmaY: 1.0,
                       ),
                       child: selectedFilter == null
-                          ? Image.file(widget.file)
+                          ? Image.file(File(widget.image.path))
                           : ColorFiltered(
                               colorFilter: selectedFilter,
-                              child: Image.file(widget.file),
+                              child: Image.file(File(widget.image.path)),
                             )),
                 ),
               ),
             ),
             const Spacer(),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+            ),
             SizedBox(
               height: 70,
               child: LayoutBuilder(
@@ -224,34 +707,67 @@ class _EditPageState extends State<EditPage> {
               ),
             ),
             SizedBox(
-              height: 50,
+              height: 90,
               child: Container(
                 color: Colors.black12,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    tabsImplement(Icons.filter_frames_outlined, 0),
-                    tabsImplement(Icons.filter, 1),
+                    tabsImplement(Icons.filter_frames_outlined, 0, "Frame"),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    tabsImplement(Icons.filter, 1, "Filter"),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    tabsImplement(Icons.text_fields, 2, "Text"),
                   ],
                 ),
               ),
             ),
           ],
-        ),
-      ),
-    );
+        ));
   }
 
-  Widget tabsImplement(IconData iconss, int a) {
-    return IconButton(
-        onPressed: () {
+  Widget tabsImplement(IconData iconss, int a, String text) {
+    return TextButton(
+      onPressed: () {
+        setState(() {
           selectedOption = a;
-        },
-        icon: Icon(
-          iconss,
-          color: ColorFile.iconColor,
-          size: 25,
-        ));
+        });
+      },
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.05,
+            width: MediaQuery.of(context).size.width * 0.10,
+            decoration: BoxDecoration(
+              color: ColorFile.editPageContainerColor,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: IconButton(
+              onPressed: () {
+                setState(() {
+                  selectedOption = a;
+                });
+              },
+              icon: Icon(
+                iconss,
+                color: ColorFile.iconColor,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.010,
+          ),
+          Text(
+            text,
+            style: TextStyle(color: ColorFile.textColor, fontSize: 12),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget frameOnImage() {
@@ -259,7 +775,7 @@ class _EditPageState extends State<EditPage> {
       height: 50,
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return applyFrame(frame[index], index);
+          return applyFrame(frame[index], index, File(widget.image.path));
         },
         itemCount: frame.length,
         scrollDirection: Axis.horizontal,
@@ -272,7 +788,8 @@ class _EditPageState extends State<EditPage> {
       height: 50,
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return imageContainer(filterList[index], index);
+          return imageContainer(
+              filterList[index], index, File(widget.image.path));
         },
         itemCount: filterList.length,
         scrollDirection: Axis.horizontal,
@@ -280,7 +797,7 @@ class _EditPageState extends State<EditPage> {
     );
   }
 
-  Widget applyFrame(String image1, int i) {
+  Widget applyFrame(String image1, int i, File file) {
     return TextButton(
       onPressed: () {
         setState(() {
@@ -299,35 +816,30 @@ class _EditPageState extends State<EditPage> {
     );
   }
 
-  Widget imageContainer(ColorFilter filter, int index) {
+  Widget imageContainer(ColorFilter filter, int index, File file) {
     return InkWell(
-      onTap: () {
-        setState(() {
-          selectedFilter = filter;
-        });
-      },
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 40,
-              width: 70,
-              child: ColorFiltered(
-                colorFilter: filter,
-                child: Image.asset(
-                  "assets/myImage.png",
-                  fit: BoxFit.fill,
+        onTap: () {
+          setState(() {
+            selectedFilter = filter;
+          });
+        },
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+                width: 70,
+                child: ColorFiltered(
+                  colorFilter: filter,
+                  child: Image.asset(
+                    "assets/myImage.png",
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              "Filter$index",
-              style: const TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
-    );
+            ],
+          ),
+        ));
   }
 }

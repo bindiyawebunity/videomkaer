@@ -1,11 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:multiple_images_picker/multiple_images_picker.dart';
 import 'package:videomaker/screen/edit_page.dart';
 import 'package:videomaker/screen/selected_image.dart';
 import '../model/color.dart';
-import 'dart:io';
 
 class CustomizeImagePage extends StatefulWidget {
   const CustomizeImagePage({Key? key}) : super(key: key);
@@ -15,112 +12,113 @@ class CustomizeImagePage extends StatefulWidget {
 }
 
 class _CustomizeImagePageState extends State<CustomizeImagePage> {
-  captureImage(ImageSource imageSource) async {
-    File pickedFile =
-        (await ImagePicker().pickImage(source: ImageSource.gallery)) as File;
-    if (pickedFile.path.isNotEmpty) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => EditPage(file: pickedFile),
-          ));
-    }
-  }
+  void getImage(ImageSource source) async {
+    final XFile? pickedFile = await ImagePicker().pickImage(
+      source: source,
+    );
 
-  List<Asset> images = <Asset>[];
-  Future pickImage() async {
-    List<Asset> resultList = <Asset>[];
-    try {
-      resultList = await MultipleImagesPicker.pickImages(
-          maxImages: 300, selectedAssets: images, enableCamera: true);
-    } catch (e) {
-      if (kDebugMode) {
-        print("failed to pick image$e");
-      }
-    }
-    setState(() {
-      images = resultList;
-    });
+    if (pickedFile == null) return;
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (_) => EditPage(image: pickedFile)));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorFile.backGroundColor,
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.close,
-              color: ColorFile.iconColor,
-            )),
-        title: Center(
-            child: Text(
-          "Select Photo",
-          style: TextStyle(
-              color: ColorFile.textColor,
-              fontSize: 18,
-              fontWeight: FontWeight.bold),
-        )),
-        actions: [
-          IconButton(
+        backgroundColor: ColorFile.backGroundColor,
+        appBar: AppBar(
+          leading: IconButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SelectedImagePage(),
-                    ));
+                Navigator.pop(context);
               },
               icon: Icon(
-                Icons.check,
+                Icons.close,
                 color: ColorFile.iconColor,
               )),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.03,
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: GridView.count(
-                  crossAxisCount: 3,
-                  children: List.generate(images.length, (index) {
-                    Asset asset = images[index];
-                    return AssetThumb(asset: asset, width: 300, height: 300);
-                  })),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.80,
-            ),
-            child: IconButton(
+          title: Center(
+              child: Text(
+            "Select Photo",
+            style: TextStyle(
+                color: ColorFile.textColor,
+                fontSize: 18,
+                fontWeight: FontWeight.bold),
+          )),
+          actions: [
+            IconButton(
                 onPressed: () {
-                  pickImage();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SelectedImagePage(),
+                      ));
                 },
                 icon: Icon(
-                  Icons.image,
-                  size: 25,
+                  Icons.check,
                   color: ColorFile.iconColor,
                 )),
-          )
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFFE68A96),
-        child: Icon(
-          Icons.add,
-          color: ColorFile.iconColor,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.03,
+            ),
+          ],
         ),
-        onPressed: () {
-          captureImage(ImageSource.gallery);
-        },
-      ),
-    );
+        body: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.05,
+              width: MediaQuery.of(context).size.width * 0.10,
+              decoration: BoxDecoration(
+                color: ColorFile.editPageContainerColor,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                          title: const Text(
+                            'CHOICE MEDIA',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          content: const SingleChildScrollView(
+                            child: ListBody(
+                              children: <Widget>[
+                                Text(""),
+                              ],
+                            ),
+                          ),
+                          actions: <Widget>[
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.height * 0.03,
+                                ),
+                                ElevatedButton(
+                                    onPressed: () =>
+                                        getImage(ImageSource.gallery),
+                                    child: const Text("From Gallery")),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.height * 0.03,
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {},
+                                    child: const Text("From Camera"))
+                              ],
+                            )
+                          ]);
+                    },
+                  );
+                },
+                icon: Icon(
+                  Icons.crop,
+                  color: ColorFile.iconColor,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
