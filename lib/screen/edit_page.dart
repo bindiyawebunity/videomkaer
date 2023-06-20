@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image_picker/image_picker.dart';
@@ -662,12 +661,12 @@ class _EditPageState extends State<EditPage> {
         body: Column(
           children: [
             Container(
-              height: 200,
+              height: 300,
               width: MediaQuery.of(context).size.width,
               decoration: assetImage1 == null
                   ? BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                           image: FileImage(File(widget.image.path))))
                   : BoxDecoration(
                       image: DecorationImage(image: AssetImage(assetImage1))),
@@ -679,10 +678,14 @@ class _EditPageState extends State<EditPage> {
                         sigmaY: 1.0,
                       ),
                       child: selectedFilter == null
-                          ? Image.file(File(widget.image.path))
+                          ? Image.file(
+                              File(widget.image.path),
+                            )
                           : ColorFiltered(
                               colorFilter: selectedFilter,
-                              child: Image.file(File(widget.image.path)),
+                              child: Image.file(
+                                File(widget.image.path),
+                              ),
                             )),
                 ),
               ),
@@ -722,6 +725,8 @@ class _EditPageState extends State<EditPage> {
                       width: 5,
                     ),
                     tabsImplement(Icons.text_fields, 2, "Text"),
+                    tabsImplement(Icons.crop, 3, "Crop"),
+                    tabsImplement(Icons.document_scanner_outlined, a, "Canvas"),
                   ],
                 ),
               ),
@@ -834,7 +839,7 @@ class _EditPageState extends State<EditPage> {
                   colorFilter: filter,
                   child: Image.asset(
                     "assets/myImage.png",
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),

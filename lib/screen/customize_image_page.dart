@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:videomaker/screen/edit_page.dart';
-import 'package:videomaker/screen/selected_image.dart';
 import '../model/color.dart';
 
 class CustomizeImagePage extends StatefulWidget {
@@ -43,81 +42,74 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
                 fontSize: 18,
                 fontWeight: FontWeight.bold),
           )),
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const SelectedImagePage(),
-                      ));
-                },
-                icon: Icon(
-                  Icons.check,
-                  color: ColorFile.iconColor,
-                )),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.03,
-            ),
-          ],
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.05,
-              width: MediaQuery.of(context).size.width * 0.10,
-              decoration: BoxDecoration(
-                color: ColorFile.editPageContainerColor,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                          title: const Text(
-                            'CHOICE MEDIA',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ),
-                          content: const SingleChildScrollView(
-                            child: ListBody(
-                              children: <Widget>[
-                                Text(""),
-                              ],
+            Center(
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.08,
+                width: MediaQuery.of(context).size.width * 0.17,
+                decoration: BoxDecoration(
+                  color: ColorFile.editPageContainerColor,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                            title: const Text(
+                              'CHOICE MEDIA',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                          ),
-                          actions: <Widget>[
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.height * 0.03,
-                                ),
-                                ElevatedButton(
-                                    onPressed: () =>
-                                        getImage(ImageSource.gallery),
-                                    child: const Text("From Gallery")),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.height * 0.03,
-                                ),
-                                ElevatedButton(
-                                    onPressed: () {},
-                                    child: const Text("From Camera"))
-                              ],
-                            )
-                          ]);
-                    },
-                  );
-                },
-                icon: Icon(
-                  Icons.crop,
-                  color: ColorFile.iconColor,
+                            content: const SingleChildScrollView(
+                              child: ListBody(
+                                children: <Widget>[
+                                  Text(""),
+                                ],
+                              ),
+                            ),
+                            actions: <Widget>[
+                              Row(
+                                children: [
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.height *
+                                        0.03,
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () =>
+                                          getImage(ImageSource.gallery),
+                                      child: const Text("From Gallery")),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.height *
+                                        0.03,
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () {},
+                                      child: const Text("From Camera"))
+                                ],
+                              )
+                            ]);
+                      },
+                    );
+                  },
+                  icon: Icon(
+                    Icons.add,
+                    color: ColorFile.iconColor,
+                  ),
                 ),
               ),
             ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.01,
+            ),
+            Text(
+              "Add Images",
+              style: TextStyle(color: ColorFile.textColor, fontSize: 16),
+            )
           ],
         ));
   }

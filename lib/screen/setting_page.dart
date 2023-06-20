@@ -56,7 +56,13 @@ class _SettingPageState extends State<SettingPage> {
                           color: ColorFile.iconColor,
                         ),
                         title: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LanguagePage(),
+                                ));
+                          },
                           child: Text(
                             "Language",
                             style: TextStyle(color: ColorFile.textColor),
@@ -81,7 +87,14 @@ class _SettingPageState extends State<SettingPage> {
                           color: ColorFile.iconColor,
                         ),
                         title: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PrivacyPolicyPage(),
+                                ));
+                          },
                           child: Text(
                             "Privacy Policy",
                             style: TextStyle(color: ColorFile.textColor),
@@ -107,7 +120,14 @@ class _SettingPageState extends State<SettingPage> {
                           color: ColorFile.iconColor,
                         ),
                         title: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const TermsOfServicePage(),
+                                ));
+                          },
                           child: Text(
                             "Terms & Conditions",
                             style: TextStyle(color: ColorFile.textColor),

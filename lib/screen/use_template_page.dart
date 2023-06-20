@@ -206,25 +206,6 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.10,
-                left: MediaQuery.of(context).size.width * 0.10),
-            child: Container(
-              height: 40,
-              width: 200,
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(40)),
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF716E6E)),
-                  onPressed: () {},
-                  child: Text(
-                    "+ Add Media",
-                    style: TextStyle(color: ColorFile.textColor),
-                  )),
-            ),
-          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
