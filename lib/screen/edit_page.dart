@@ -1,6 +1,7 @@
-import 'dart:ui';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:videomaker/screen/save_video_page.dart';
@@ -16,16 +17,16 @@ class EditPage extends StatefulWidget {
 
 class _EditPageState extends State<EditPage> {
   List<String> frame = [
-    "assets/frame_1.jpg",
-    "assets/frame_2.jpg",
-    "assets/frame_3.jpg",
-    "assets/frame_4.jpg",
-    "assets/frame_5.jpg",
-    "assets/frame_6.webp",
-    "assets/frame_7.jpg",
-    "assets/frame_8.jpg",
-    "assets/frame_9.jpg",
-    "assets/frame_10.jpg",
+    "assets/2.png",
+    "assets/3.png",
+    "assets/4.png",
+    "assets/5.png",
+    "assets/6.png",
+    "assets/7.png",
+    "assets/8.png",
+    "assets/9.png",
+    "assets/10.png",
+    "assets/11.png",
   ];
 
   List<ColorFilter> filterList = [
@@ -613,6 +614,7 @@ class _EditPageState extends State<EditPage> {
   dynamic assetImage1;
   dynamic width;
   File file = File("assets/homePage2.png");
+  late File croppedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -638,10 +640,16 @@ class _EditPageState extends State<EditPage> {
           actions: [
             IconButton(
                 onPressed: () async {
-                  GallerySaver.saveImage(widget.image.path).then((value) {
+                  try {
+                    await GallerySaver.saveImage(croppedImage.path);
                     ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text("photo saved")));
-                  });
+                      const SnackBar(content: Text('Image saved to gallery')),
+                    );
+                  } catch (e) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Failed to save image')),
+                    );
+                  }
 
                   Navigator.push(
                       context,
@@ -660,20 +668,25 @@ class _EditPageState extends State<EditPage> {
         ),
         body: Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             Container(
               height: 300,
               width: MediaQuery.of(context).size.width,
               decoration: assetImage1 == null
                   ? BoxDecoration(
                       image: DecorationImage(
-                          fit: BoxFit.cover,
                           image: FileImage(File(widget.image.path))))
                   : BoxDecoration(
-                      image: DecorationImage(image: AssetImage(assetImage1))),
+                      image: DecorationImage(
+                      image: AssetImage(assetImage1),
+                      fit: BoxFit.cover,
+                    )),
               child: ClipRRect(
                 child: SizedBox(
                   child: BackdropFilter(
-                      filter: ImageFilter.blur(
+                      filter: ui.ImageFilter.blur(
                         sigmaX: 1.0,
                         sigmaY: 1.0,
                       ),
@@ -692,7 +705,7 @@ class _EditPageState extends State<EditPage> {
             ),
             const Spacer(),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.15,
+              height: MediaQuery.of(context).size.height * 0.13,
             ),
             SizedBox(
               height: 70,
@@ -703,6 +716,9 @@ class _EditPageState extends State<EditPage> {
                   }
                   if (selectedOption == 1) {
                     return filterColorOptionContainer(context);
+                  }
+                  if (selectedOption == 2) {
+                    return cropOptionContainer(context);
                   } else {
                     return const Text("Pending");
                   }
@@ -724,9 +740,15 @@ class _EditPageState extends State<EditPage> {
                     const SizedBox(
                       width: 5,
                     ),
-                    tabsImplement(Icons.text_fields, 2, "Text"),
-                    tabsImplement(Icons.crop, 3, "Crop"),
-                    tabsImplement(Icons.document_scanner_outlined, a, "Canvas"),
+                    tabsImplement(Icons.crop, 2, "Crop"),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    tabsImplement(Icons.text_fields, 3, "Text"),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    tabsImplement(Icons.document_scanner_outlined, 4, "Canvas"),
                   ],
                 ),
               ),
@@ -777,10 +799,10 @@ class _EditPageState extends State<EditPage> {
 
   Widget frameOnImage() {
     return SizedBox(
-      height: 50,
+      height: 250,
       child: ListView.builder(
         itemBuilder: (context, index) {
-          return applyFrame(frame[index], index, File(widget.image.path));
+          return applyFrame(frame[index], index);
         },
         itemCount: frame.length,
         scrollDirection: Axis.horizontal,
@@ -802,7 +824,10 @@ class _EditPageState extends State<EditPage> {
     );
   }
 
-  Widget applyFrame(String image1, int i, File file) {
+  Widget applyFrame(
+    String image1,
+    int i,
+  ) {
     return TextButton(
       onPressed: () {
         setState(() {
@@ -810,12 +835,16 @@ class _EditPageState extends State<EditPage> {
         });
       },
       child: Container(
+        height: 100,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(image1)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8),
-          child: Image.asset("assets/white_page.jpg"),
+          child: Image.file(
+            File(widget.image.path),
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );
@@ -846,5 +875,47 @@ class _EditPageState extends State<EditPage> {
             ],
           ),
         ));
+  }
+
+  Widget cropOptionContainer(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _cropImage();
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          children: [
+            Icon(
+              Icons.crop,
+              color: ColorFile.iconColor,
+              size: 30,
+            ),
+            const SizedBox(height: 5),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _cropImage() async {
+    final cropped = await ImageCropper().cropImage(
+      sourcePath: widget.image.path,
+      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+      androidUiSettings: AndroidUiSettings(
+        toolbarColor: Colors.deepOrange,
+        toolbarTitle: "Crop Image",
+        statusBarColor: Colors.deepOrange.shade900,
+        backgroundColor: Colors.white,
+      ),
+    );
+
+    if (cropped != null) {
+      setState(() {
+        croppedImage = cropped;
+      });
+    }
   }
 }

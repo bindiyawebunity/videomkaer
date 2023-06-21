@@ -215,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                                       child: const Text("cancel")),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
-                                        0.010,
+                                        0.15,
                                   ),
                                   ElevatedButton(
                                       onPressed: () {
@@ -515,18 +515,18 @@ class DataSearch extends SearchDelegate<String> {
   ];
 
   final dance = [
-    "Couple dance",
-    "Romantic dance",
-    "Sisters dance",
+    "couple dance",
+    "romantic dance",
+    "sisters dance",
     "family dance",
-    "Bro&sis dance",
-    "Sports",
-    "Dance",
-    "Romantic",
-    "Funny",
-    "Animal",
-    "Vlog",
-    "Fashion"
+    "bro&sis dance",
+    "sports",
+    "dance",
+    "romantic",
+    "funny",
+    "animal",
+    "vlog",
+    "fashion"
   ];
 
   @override

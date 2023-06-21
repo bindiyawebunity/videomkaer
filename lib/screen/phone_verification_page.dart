@@ -83,6 +83,7 @@ class _PhoneVerificationPageState extends State<PhoneVerificationPage> {
                         fillColor: Colors.white,
                         filled: true,
                         labelText: 'Phone Number',
+                        labelStyle: TextStyle(color: Colors.black),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Colors.white),
                         ),

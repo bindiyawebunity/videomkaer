@@ -5,7 +5,6 @@ import 'package:videomaker/model/String.dart';
 import 'package:videomaker/model/TextStyle.dart';
 import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/sign_up.dart';
-
 import 'home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -136,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.height * 0.17),
+                              left: MediaQuery.of(context).size.width * 0.35),
                           child: Text(
                             StringFile.loginPageLast,
                             style: TextStyle(
@@ -179,22 +178,24 @@ class _LoginPageState extends State<LoginPage> {
                               //                 password: loginPassword))
                               //         .user;
                               //     if (firebaseUsers != null) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const HomePage(),
-                                  ));
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomePage(),
+                                    ));
 
-                              //     } else {
-                              //       const SnackBar(
-                              //           content: Text("check Email & Password"));
-                              //     }
-                              //   } on FirebaseAuthException catch (e) {
-                              //     if (kDebugMode) {
-                              //       print("error$e");
-                              //     }
-                              //   }
-                            })),
+                                //     } else {
+                                //       const SnackBar(
+                                //           content: Text("check Email & Password"));
+                                //     }
+                                //   } on FirebaseAuthException catch (e) {
+                                //     if (kDebugMode) {
+                                //       print("error$e");
+                                //     }
+                                //   }
+                              }
+                            }))
                   ],
                 ),
               ],

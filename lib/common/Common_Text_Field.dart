@@ -38,6 +38,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
       decoration: InputDecoration(
           filled: true,
           hintText: widget.hintText,
+          hintStyle: const TextStyle(color: Colors.black),
           suffixIcon: IconButton(
             onPressed: widget.onPressed,
             icon: Icon(widget.iconDataSuffix),
