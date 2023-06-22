@@ -23,7 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
         child: Column(
           children: [
-            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             const Image(
               image: AssetImage(
                 "assets/welcomePage.png",
