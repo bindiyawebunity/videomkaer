@@ -677,7 +677,11 @@ class _EditPageState extends State<EditPage> {
               decoration: assetImage1 == null
                   ? BoxDecoration(
                       image: DecorationImage(
-                          image: FileImage(File(widget.image.path))))
+                      image: FileImage(File(
+                        widget.image.path,
+                      )),
+                      fit: BoxFit.fill,
+                    ))
                   : BoxDecoration(
                       image: DecorationImage(
                       image: AssetImage(assetImage1),
@@ -732,6 +736,9 @@ class _EditPageState extends State<EditPage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
+                    const SizedBox(
+                      width: 5,
+                    ),
                     tabsImplement(Icons.filter_frames_outlined, 0, "Frame"),
                     const SizedBox(
                       width: 5,
@@ -799,7 +806,7 @@ class _EditPageState extends State<EditPage> {
 
   Widget frameOnImage() {
     return SizedBox(
-      height: 250,
+      height: 300,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return applyFrame(frame[index], index);
@@ -824,10 +831,7 @@ class _EditPageState extends State<EditPage> {
     );
   }
 
-  Widget applyFrame(
-    String image1,
-    int i,
-  ) {
+  Widget applyFrame(String image1, int i,) {
     return TextButton(
       onPressed: () {
         setState(() {
@@ -835,7 +839,7 @@ class _EditPageState extends State<EditPage> {
         });
       },
       child: Container(
-        height: 100,
+        height: 200,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage(image1)),
         ),

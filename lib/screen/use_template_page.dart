@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:videomaker/model/color.dart';
 import 'package:videomaker/screen/customize_image_page.dart';
+import 'package:videomaker/screen/image_edit_page.dart';
 
 class UseTemplatePage extends StatefulWidget {
   const UseTemplatePage({Key? key}) : super(key: key);
@@ -218,7 +219,7 @@ class _UseTemplatePageState extends State<UseTemplatePage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const CustomizeImagePage(),
+                builder: (context) => const ImageEditorExample(),
               ));
         },
       ),

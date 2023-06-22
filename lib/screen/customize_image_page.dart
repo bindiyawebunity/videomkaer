@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:videomaker/screen/edit_page.dart';
+import 'package:videomaker/screen/image_edit_page.dart';
 import '../model/color.dart';
 
 class CustomizeImagePage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _CustomizeImagePageState extends State<CustomizeImagePage> {
 
     if (pickedFile == null) return;
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => EditPage(image: pickedFile)));
+        .push(MaterialPageRoute(builder: (_) => const ImageEditorExample()));
   }
 
   @override
