@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:videomaker/screen/home_page.dart';
-import 'package:videomaker/screen/test_dart.dart';
-import 'package:videomaker/screen/use_template_page.dart';
+import 'package:videomaker/screen/welcome_screen.dart';
 import 'model/color.dart';
 
 Future<void> main() async {
@@ -32,6 +30,6 @@ class MyApp extends StatelessWidget {
             radioTheme: RadioThemeData(
                 fillColor:
                     MaterialStateColor.resolveWith((states) => Colors.red))),
-        home:  HomePage());
+        home: const WelcomeScreen());
   }
 }

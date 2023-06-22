@@ -824,10 +824,7 @@ class _EditPageState extends State<EditPage> {
     );
   }
 
-  Widget applyFrame(
-    String image1,
-    int i,
-  ) {
+  Widget applyFrame(String image1, int i,) {
     return TextButton(
       onPressed: () {
         setState(() {

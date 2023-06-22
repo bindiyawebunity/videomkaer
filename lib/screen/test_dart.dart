@@ -1,205 +1,266 @@
-import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:gallery_saver/gallery_saver.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
-import 'package:videomaker/screen/save_video_page.dart';
-import 'package:videomaker/screen/test_dart.dart';
-import '../model/color.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-class EditPage1 extends StatefulWidget {
-  final XFile image;
-  const EditPage1({Key? key, required this.image}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<EditPage1> createState() => _EditPage1State();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _EditPage1State extends State<EditPage1> {
-  List<String> frame = [
-    "assets/2.png",
-    "assets/3.png",
-    "assets/4.png",
-    "assets/5.png",
-    "assets/6.png",
-    "assets/7.png",
-    "assets/8.png",
-    "assets/9.png",
-    "assets/10.png",
-    "assets/11.png",
-  ];
+enum TextAlignOption {
+  topLeft,
+  topCenter,
+  topRight,
+  centerLeft,
+  center,
+  centerRight,
+  bottomLeft,
+  bottomCenter,
+  bottomRight,
+}
 
-  List<ColorFilter> filterList = [
-    const ColorFilter.matrix(
-      [
-        0.95, 0, 0, 0, 0, 0, 0.94, 0, 0, 0, 0.94, 0, 0, 1, 0, 0, 0, 0, 1, 0,
-      ],
-    ),
-    // Add other color filters here
-  ];
+class _HomeScreenState extends State<HomeScreen> {
+  String text = '';
+  Color textColor = Colors.white;
+  TextAlignOption textAlign = TextAlignOption.center;
+  double textPositionX = 0.0;
+  double textPositionY = 0.0;
+  double fontSize = 24.0;
 
-  int selectedOption = 0;
-  ColorFilter? selectedFilter;
-  File? file;
-  late final String croppedImagePath;
+  TextEditingController textEditingController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          children: [
+            Image.asset(
+              'assets/myImage.png',
+              fit: BoxFit.cover,
+              height: double.infinity,
+              width: double.infinity,
+            ),
+            Positioned(
+              left: textPositionX,
+              top: textPositionY,
+              child: GestureDetector(
+                onPanUpdate: (details) {
+                  setState(() {
+                    textPositionX += details.delta.dx;
+                    textPositionY += details.delta.dy;
+                  });
+                },
+                child: Container(
+                  alignment: _getTextAlign(),
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      fontSize: fontSize,
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 20,
+              left: 20,
+              right: 20,
+              child: Column(
+                children: [
+                  TextField(
+                    controller: textEditingController,
+                    decoration: const InputDecoration(
+                      fillColor: Colors.white,
+                      filled: true,
+                      labelText: 'Enter Text',
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        text = value;
+                      });
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Text Color:'),
+                      const SizedBox(width: 10),
+                      ColorPickerButton(
+                        selectedColor: textColor,
+                        onColorChanged: (color) {
+                          setState(() {
+                            textColor = color;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text('Font Size:'),
+                      const SizedBox(width: 10),
+                      Slider(
+                        value: fontSize,
+                        min: 10.0,
+                        max: 50.0,
+                        divisions: 40,
+                        onChanged: (value) {
+                          setState(() {
+                            fontSize = value;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextAlignButton(TextAlignOption option) {
+    bool isSelected = textAlign == option;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          textAlign = option;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: isSelected ? Colors.blue : Colors.transparent,
+        ),
+        child: Icon(
+          _getTextAlignIcon(option),
+          color: isSelected ? Colors.white : Colors.black,
+        ),
+      ),
+    );
+  }
+
+  Alignment _getTextAlign() {
+    switch (textAlign) {
+      case TextAlignOption.topLeft:
+        return Alignment.topLeft;
+      case TextAlignOption.topCenter:
+        return Alignment.topCenter;
+      case TextAlignOption.topRight:
+        return Alignment.topRight;
+      case TextAlignOption.centerLeft:
+        return Alignment.centerLeft;
+      case TextAlignOption.center:
+        return Alignment.center;
+      case TextAlignOption.centerRight:
+        return Alignment.centerRight;
+      case TextAlignOption.bottomLeft:
+        return Alignment.bottomLeft;
+      case TextAlignOption.bottomCenter:
+        return Alignment.bottomCenter;
+      case TextAlignOption.bottomRight:
+        return Alignment.bottomRight;
+    }
+  }
+
+  IconData _getTextAlignIcon(TextAlignOption option) {
+    switch (option) {
+      case TextAlignOption.topLeft:
+        return Icons.format_align_left;
+      case TextAlignOption.topCenter:
+        return Icons.format_align_center;
+      case TextAlignOption.topRight:
+        return Icons.format_align_right;
+      case TextAlignOption.centerLeft:
+        return Icons.format_align_left;
+      case TextAlignOption.center:
+        return Icons.format_align_center;
+      case TextAlignOption.centerRight:
+        return Icons.format_align_right;
+      case TextAlignOption.bottomLeft:
+        return Icons.format_align_left;
+      case TextAlignOption.bottomCenter:
+        return Icons.format_align_center;
+      case TextAlignOption.bottomRight:
+        return Icons.format_align_right;
+    }
+  }
+}
+
+class ColorPickerButton extends StatefulWidget {
+  final Color selectedColor;
+  final ValueChanged<Color> onColorChanged;
+
+  const ColorPickerButton({
+    super.key,
+    required this.selectedColor,
+    required this.onColorChanged,
+  });
+
+  @override
+  _ColorPickerButtonState createState() => _ColorPickerButtonState();
+}
+
+class _ColorPickerButtonState extends State<ColorPickerButton> {
+  Color currentColor = Colors.transparent;
 
   @override
   void initState() {
     super.initState();
-    file = File(widget.image.path);
-  }
-
-  Future<void> _saveImage() async {
-    try {
-      await GallerySaver.saveImage(croppedImagePath);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Image saved to gallery')),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to save image')),
-      );
-    }
-
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SaveVideoPage(),
-      ),
-    );
-  }
-
-  Widget frameOnImage() {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: frame.length,
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              file = File(frame[index]);
-              selectedOption = 0;
-            });
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(frame[index]),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Widget filterColorOptionContainer(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: filterList.length,
-      itemBuilder: (BuildContext context, int index) {
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              selectedFilter = filterList[index];
-              selectedOption = 1;
-            });
-          },
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 50,
-              width: 50,
-              color: Colors.transparent,
-              child: ColorFiltered(
-                colorFilter: filterList[index],
-                child: Image.file(
-                  file!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  Future<void> _cropImage() async {
-    final croppedImage = await ImageCropper().cropImage(
-      sourcePath: file!.path,
-      aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
-      compressQuality: 100,
-      maxHeight: 1000,
-      maxWidth: 1000,
-      compressFormat: ImageCompressFormat.png,
-      androidUiSettings: const AndroidUiSettings(
-        toolbarTitle: 'Crop Image',
-        toolbarColor: Colors.deepOrange,
-        toolbarWidgetColor: Colors.white,
-        initAspectRatio: CropAspectRatioPreset.original,
-        lockAspectRatio: false,
-      ),
-    );
-
-    if (croppedImage != null) {
-      setState(() {
-        file = croppedImage;
-        croppedImagePath = croppedImage.path;
-      });
-    }
+    currentColor = widget.selectedColor;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Image Editor'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.save),
-            onPressed: _saveImage,
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              width: double.infinity,
-              child: selectedOption == 0
-                  ? Image.asset(
-                frame[selectedOption],
-                fit: BoxFit.cover,
-              )
-                  : ColorFiltered(
-                colorFilter: selectedFilter!,
-                child: Image.file(
-                  file!,
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Select Color'),
+              content: SingleChildScrollView(
+                child: ColorPicker(
+                  pickerColor: currentColor,
+                  onColorChanged: (color) {
+                    setState(() {
+                      currentColor = color;
+                    });
+                  },
+                  pickerAreaHeightPercent: 0.8,
                 ),
               ),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: selectedOption == 0
-                ? frameOnImage()
-                : filterColorOptionContainer(context),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _cropImage,
-        child: const Icon(Icons.crop),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    widget.onColorChanged(currentColor);
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      },
+      child: Container(
+        width: 30,
+        height: 30,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: currentColor,
+        ),
       ),
     );
   }
